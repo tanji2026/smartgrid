@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -97,27 +97,27 @@
                     </div>
                     <div class="flex flex-col items-end">
                         <span class="text-[10px] text-slate-400 font-bold tracking-wider uppercase mb-0.5" id="game-score-title">當前績效</span>
-                        <div class="text-xl sm:text-2xl font-black text-emerald-400 font-mono flex items-center gap-1">
-                            <span id="ui-total-score">0</span> <span class="text-xs text-emerald-600 font-bold">pts</span>
+                        <div id="ui-score-display" class="text-xl sm:text-2xl font-black text-emerald-400 font-mono flex items-center gap-1 transition-colors duration-300">
+                            <span id="ui-total-score">0</span> <span id="ui-score-unit" class="text-xs text-emerald-600 font-bold">pts</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="grid grid-cols-4 gap-1 bg-black/40 p-2 rounded-xl border border-white/5 relative mt-1">
                     <div class="text-center">
-                        <div class="text-[8px] text-slate-500 font-bold uppercase" id="game-solar-label">太陽能</div>
+                        <div class="text-[9px] text-slate-500 font-bold uppercase" id="game-solar-label">太陽能</div>
                         <div class="text-[11px] font-black text-yellow-400 font-mono mt-0.5" id="ui-solar">0</div>
                     </div>
                     <div class="text-center border-l border-white/5">
-                        <div class="text-[8px] text-slate-500 font-bold uppercase" id="game-wind-label">風力</div>
+                        <div class="text-[9px] text-slate-500 font-bold uppercase" id="game-wind-label">風力</div>
                         <div class="text-[11px] font-black text-cyan-400 font-mono mt-0.5" id="ui-wind">100</div>
                     </div>
                     <div class="text-center border-l border-white/5">
-                        <div class="text-[8px] text-slate-500 font-bold uppercase">地熱(基載)</div>
+                        <div class="text-[9px] text-slate-500 font-bold uppercase">地熱(基載)</div>
                         <div class="text-[11px] font-black text-emerald-400 font-mono mt-0.5" id="ui-geo">50</div>
                     </div>
                     <div class="text-center border-l border-white/5">
-                        <div class="text-[8px] text-slate-500 font-bold uppercase" id="game-load-label">總負載</div>
+                        <div class="text-[9px] text-slate-500 font-bold uppercase" id="game-load-label">總負載</div>
                         <div class="text-[11px] font-black text-rose-400 font-mono mt-0.5" id="ui-draw">400</div>
                     </div>
                 </div>
@@ -240,7 +240,7 @@
                 statusCharge: "充電",
                 statusDischarge: "放電",
                 genName: "備用發電機",
-                genCost: "-10 pts/s",
+                genCost: "-10/s",
                 resScoreLabel: "綜合績效分數",
                 resNameLabel: "指揮官代號",
                 resNamePlaceholder: "輸入你的名字",
@@ -530,6 +530,17 @@
             
             let totalScore = Math.floor(state.satisfaction) - state.carbon;
             document.getElementById('ui-total-score').innerText = totalScore;
+            
+            const scoreDisplay = document.getElementById('ui-score-display');
+            const scoreUnit = document.getElementById('ui-score-unit');
+            if (totalScore < 0) {
+                scoreDisplay.classList.replace('text-emerald-400', 'text-rose-500');
+                scoreUnit.classList.replace('text-emerald-600', 'text-rose-600');
+            } else {
+                scoreDisplay.classList.replace('text-rose-500', 'text-emerald-400');
+                scoreUnit.classList.replace('text-rose-600', 'text-emerald-600');
+            }
+
             document.getElementById('ui-battery-text').innerHTML = `<span class="text-slate-200 font-black">${Math.floor(state.battery)} / ${state.maxBattery}</span>`;
             
             const pct = Math.max(0, (state.battery / state.maxBattery) * 100);
