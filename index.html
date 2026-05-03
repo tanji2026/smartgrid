@@ -17,7 +17,7 @@
         .fade-in { animation: fadeIn 0.3s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         .pulse-glow { animation: pulseGlow 2s infinite; }
-        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(52, 211, 153, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); } }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
@@ -27,8 +27,8 @@
 
     <div id="app-container" class="w-full max-w-md h-full relative bg-[#0B1120] shadow-2xl flex flex-col overflow-hidden sm:border-x sm:border-slate-800">
         
-        <button onclick="openHelp()" class="absolute bottom-10 right-4 z-[90] bg-slate-800/80 backdrop-blur-md text-slate-300 p-2.5 rounded-full border border-slate-600 hover:bg-slate-700 hover:text-white transition-all shadow-lg active:scale-95">
-            <i data-lucide="help-circle" class="w-5 h-5"></i>
+        <button onclick="openHelp()" class="absolute bottom-12 right-4 z-[90] bg-slate-800/80 backdrop-blur-md text-slate-300 p-2.5 rounded-full border border-slate-600 hover:bg-slate-700 hover:text-white transition-all shadow-lg active:scale-95">
+            <i data-lucide="help-circle" class="w-6 h-6"></i>
         </button>
 
         <div id="help-modal" class="absolute inset-0 bg-black/80 backdrop-blur-sm z-[110] hidden flex-col items-center justify-center p-6 text-white transition-opacity">
@@ -39,7 +39,7 @@
                 <h3 class="text-xl font-black text-emerald-400 mb-4 flex items-center gap-2" id="help-title">
                     <i data-lucide="book-open" class="w-5 h-5"></i> 遊戲說明
                 </h3>
-                <div id="help-content" class="text-xs text-slate-300 space-y-3"></div>
+                <div id="help-content" class="text-sm text-slate-300 space-y-3"></div>
                 <button onclick="closeHelp()" class="w-full mt-5 bg-slate-700 hover:bg-slate-600 text-white py-2.5 rounded-xl font-bold transition-colors" id="help-close-btn">
                     了解！
                 </button>
@@ -48,15 +48,15 @@
 
         <div id="screen-intro" class="absolute inset-0 bottom-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-[#0B1120] to-black z-50 flex flex-col items-center justify-center px-5 text-white transition-all overflow-hidden">
             <button onclick="toggleLang()" class="absolute top-4 right-4 z-[100] bg-white/10 backdrop-blur-md text-slate-200 px-3 py-1.5 rounded-full text-sm font-bold border border-white/10 hover:bg-white/20 transition-all flex items-center gap-1.5 shadow-lg">
-                <i data-lucide="globe" class="w-3.5 h-3.5"></i> <span id="lang-btn-text">EN</span>
+                <i data-lucide="globe" class="w-4 h-4"></i> <span id="lang-btn-text">EN</span>
             </button>
 
-            <div class="relative mb-4 flex flex-col items-center mt-2">
+            <div class="relative mb-6 flex flex-col items-center mt-2">
                 <div class="mb-3 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 flex items-center gap-2 animate-pulse">
                     <i data-lucide="triangle-alert" class="w-4 h-4"></i>
                     <span class="font-bold text-sm tracking-widest" id="intro-alert">外部電網異常</span>
                 </div>
-                <div class="w-36 h-36 md:w-44 md:h-44 animate-float relative z-10">
+                <div class="w-40 h-40 md:w-48 md:h-48 animate-float relative z-10">
                     <img src="https://raw.githubusercontent.com/tanji2026/ccus/main/tanjibaby.png" alt="碳吉" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(16,185,129,0.3)]">
                 </div>
                 <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl z-0"></div>
@@ -67,8 +67,8 @@
                 <p class="text-slate-300 font-bold text-base tracking-widest leading-relaxed" id="intro-subtitle">
                     主系統故障！我是工程師碳吉。<br>請協助接管區域能源管理系統。
                 </p>
-                <button onclick="startGame()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-3.5 rounded-full font-black tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.3)] pulse-glow active:scale-95 transition-all flex justify-center items-center gap-2 mt-4 text-lg">
-                    <span id="intro-btn-text">啟動 EMS 系統</span> <i data-lucide="power" class="w-5 h-5"></i>
+                <button onclick="startGame()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-4 rounded-full font-black tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.3)] pulse-glow active:scale-95 transition-all flex justify-center items-center gap-2 mt-4 text-xl">
+                    <span id="intro-btn-text">啟動 EMS 系統</span> <i data-lucide="power" class="w-6 h-6"></i>
                 </button>
                 <button onclick="openLeaderboard()" class="w-full text-emerald-400 font-bold text-sm tracking-widest hover:text-emerald-300 transition-colors mt-2" id="intro-btn-rank">
                     🏆 觀看戰情室排行榜
@@ -77,108 +77,108 @@
         </div>
 
         <div id="screen-game" class="absolute inset-0 bottom-8 hidden flex-col bg-[#0B1120] z-40">
-            <div class="glass-panel border-b-0 py-2 px-3 flex flex-col gap-1.5 shadow-lg z-20 relative rounded-b-xl">
-                <div class="absolute top-0 left-0 h-2 bg-slate-800 w-full rounded-t-xl"></div>
-                <div id="time-progress-bar" class="absolute top-0 left-0 h-2 bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 w-0 transition-all duration-1000 shadow-[0_0_12px_rgba(52,211,153,1)] rounded-r-full z-10"></div>
+            <div class="glass-panel border-b-0 py-2.5 px-4 flex flex-col gap-1.5 shadow-lg z-20 relative rounded-b-2xl">
+                <div class="absolute top-0 left-0 h-2.5 bg-slate-800 w-full rounded-t-2xl"></div>
+                <div id="time-progress-bar" class="absolute top-0 left-0 h-2.5 bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 w-0 transition-all duration-1000 shadow-[0_0_15px_rgba(52,211,153,1)] rounded-r-full z-10"></div>
 
-                <div class="flex justify-between items-center mt-1.5">
+                <div class="flex justify-between items-center mt-2">
                     <div class="flex flex-col">
-                        <span class="text-[9px] text-slate-400 font-bold tracking-wider uppercase mb-0.5 flex items-center gap-1.5">
+                        <span class="text-[10px] text-slate-400 font-bold tracking-wider uppercase mb-0.5 flex items-center gap-1.5">
                             <span id="game-time-label">虛擬時間</span>
                             <span id="ui-event-banner" class="hidden text-[9px] px-1.5 py-0.5 rounded bg-slate-800 border border-slate-600 font-bold text-slate-300"><i data-lucide="zap" class="w-2.5 h-2.5 inline text-amber-400 animate-pulse"></i> <span id="ui-event-text">天氣突變！</span></span>
                         </span>
-                        <div class="flex items-center gap-1.5 tracking-tight" id="ui-clock-container">
-                            <i data-lucide="sun" id="time-icon" class="w-5 h-5 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]"></i>
-                            <span class="text-xl font-black text-white font-mono" id="ui-virtual-time">00:00</span>
-                            <span class="px-1.5 py-0.5 bg-slate-800/80 text-emerald-400 text-[10px] rounded border border-slate-600 font-mono">
+                        <div class="flex items-center gap-2 tracking-tight" id="ui-clock-container">
+                            <i data-lucide="sun" id="time-icon" class="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]"></i>
+                            <span class="text-xl sm:text-2xl font-black text-white font-mono" id="ui-virtual-time">00:00</span>
+                            <span class="px-2 py-1 bg-slate-800/90 text-emerald-400 text-xs sm:text-sm rounded-md border border-slate-600 font-mono font-black shadow-lg">
                                 <span id="ui-real-time">60s</span>
                             </span>
                         </div>
                     </div>
                     <div class="flex flex-col items-end">
-                        <span class="text-[9px] text-slate-400 font-bold tracking-wider uppercase mb-0.5" id="game-score-title">當前績效</span>
-                        <div class="text-lg font-black text-emerald-400 font-mono flex items-center gap-1">
-                            <span id="ui-total-score">0</span> <span class="text-[10px] text-emerald-600 font-bold">pts</span>
+                        <span class="text-[10px] text-slate-400 font-bold tracking-wider uppercase mb-0.5" id="game-score-title">當前績效</span>
+                        <div class="text-xl sm:text-2xl font-black text-emerald-400 font-mono flex items-center gap-1">
+                            <span id="ui-total-score">0</span> <span class="text-xs text-emerald-600 font-bold">pts</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-3 gap-1 bg-black/40 p-1.5 rounded-lg border border-white/5 relative">
+                <div class="grid grid-cols-3 gap-1.5 bg-black/40 p-2 rounded-xl border border-white/5 relative mt-1">
                     <div class="text-center">
-                        <div class="text-[8px] text-slate-500 font-bold" id="game-solar-label">太陽能</div>
-                        <div class="text-xs font-black text-yellow-400 font-mono mt-0.5" id="ui-solar">0</div>
+                        <div class="text-[9px] text-slate-500 font-bold uppercase" id="game-solar-label">太陽能</div>
+                        <div class="text-sm font-black text-yellow-400 font-mono mt-0.5" id="ui-solar">0</div>
                     </div>
                     <div class="text-center border-l border-r border-white/5">
-                        <div class="text-[8px] text-slate-500 font-bold" id="game-wind-label">風力</div>
-                        <div class="text-xs font-black text-cyan-400 font-mono mt-0.5" id="ui-wind">100</div>
+                        <div class="text-[9px] text-slate-500 font-bold uppercase" id="game-wind-label">風力</div>
+                        <div class="text-sm font-black text-cyan-400 font-mono mt-0.5" id="ui-wind">100</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-[8px] text-slate-500 font-bold" id="game-load-label">總負載</div>
-                        <div class="text-xs font-black text-rose-400 font-mono mt-0.5" id="ui-draw">400</div>
+                        <div class="text-[9px] text-slate-500 font-bold uppercase" id="game-load-label">總負載</div>
+                        <div class="text-sm font-black text-rose-400 font-mono mt-0.5" id="ui-draw">400</div>
                     </div>
                 </div>
             </div>
 
-            <div class="px-4 py-2 flex flex-col gap-1 relative z-10">
+            <div class="px-4 py-2.5 flex flex-col gap-1.5 relative z-10">
                 <div class="flex justify-between items-end mb-0.5">
-                    <span class="text-[10px] font-bold text-slate-400 tracking-wider uppercase" id="game-net-label">ESS 淨流向</span>
-                    <span id="ui-net-power" class="font-mono text-sm tracking-tight font-black text-rose-400">-150 kW</span>
+                    <span class="text-xs font-bold text-slate-400 tracking-wider uppercase" id="game-net-label">ESS 淨流向</span>
+                    <span id="ui-net-power" class="font-mono text-base tracking-tight font-black text-rose-400">-150 kW</span>
                 </div>
-                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700 relative shadow-inner">
+                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700 relative shadow-inner">
                     <div id="ui-battery-bar" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300"></div>
                 </div>
-                <div class="text-right text-[9px] text-slate-500 font-mono font-bold mt-0.5">
-                    <span id="ui-battery-text" class="text-slate-300">3000 / 6000</span> kWh
+                <div class="text-right text-[10px] sm:text-xs text-slate-500 font-mono font-bold mt-0.5">
+                    <span id="ui-battery-text" class="text-slate-200 text-sm">3000 / 6000</span> kWh
                 </div>
             </div>
 
-            <div class="flex-1 overflow-y-auto px-3 pb-3 flex flex-col gap-1.5 no-scrollbar z-0 relative">
-                <div class="bg-gradient-to-r from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-xl border border-amber-500/30 p-1.5 shadow-sm relative overflow-hidden flex-shrink-0 cursor-pointer active:scale-[0.98] transition-transform" onclick="toggleGenerator()">
+            <div class="flex-1 overflow-y-auto px-3 pb-3 flex flex-col gap-2 no-scrollbar z-0 relative">
+                <div class="bg-gradient-to-r from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-xl border border-amber-500/30 p-2 shadow-sm relative overflow-hidden flex-shrink-0 cursor-pointer active:scale-[0.98] transition-transform" onclick="toggleGenerator()">
                     <div id="gen-bg-fx" class="absolute inset-0 bg-amber-500/10 hidden animate-pulse"></div>
                     <div class="flex justify-between items-center relative z-10 px-1">
                         <div class="flex items-center gap-3">
-                            <div id="gen-icon-bg" class="bg-slate-800/80 border border-slate-700 w-8 h-8 rounded-lg flex items-center justify-center shadow-inner flex-shrink-0">
-                                <i data-lucide="flame" id="gen-icon" class="w-4 h-4 text-slate-500 transition-colors"></i>
+                            <div id="gen-icon-bg" class="bg-slate-800/80 border border-slate-700 w-10 h-10 rounded-lg flex items-center justify-center shadow-inner flex-shrink-0 transition-colors">
+                                <i data-lucide="flame" id="gen-icon" class="w-5 h-5 text-slate-500 transition-colors"></i>
                             </div>
                             <div>
-                                <h3 class="font-bold text-xs text-amber-500 leading-none" id="game-gen-name">備用發電機</h3>
-                                <div class="text-[9px] font-mono font-bold flex gap-2 mt-1">
+                                <h3 class="font-bold text-sm text-amber-500 leading-none" id="game-gen-name">備用發電機</h3>
+                                <div class="text-[10px] sm:text-xs font-mono font-bold flex gap-2 mt-1.5">
                                     <span class="text-emerald-400">+200 kW</span>
                                     <span class="text-red-400" id="game-gen-cost">-10 pts/s</span>
                                 </div>
                             </div>
                         </div>
-                        <div id="gen-toggle-bg" class="w-9 h-5 rounded-full bg-slate-700 relative transition-colors shadow-inner flex items-center p-0.5 border border-slate-600 flex-shrink-0">
-                            <div id="gen-toggle-dot" class="w-4 h-4 rounded-full bg-slate-300 shadow-sm transform transition-transform duration-300 translate-x-0"></div>
+                        <div id="gen-toggle-bg" class="w-12 h-7 rounded-full bg-slate-700 relative transition-colors shadow-inner flex items-center p-1 border border-slate-600 flex-shrink-0">
+                            <div id="gen-toggle-dot" class="w-5 h-5 rounded-full bg-slate-300 shadow-sm transform transition-transform duration-300 translate-x-0"></div>
                         </div>
                     </div>
                 </div>
-                <div id="facilities-container" class="grid grid-cols-2 gap-1.5"></div>
+                <div id="facilities-container" class="grid grid-cols-2 gap-2 pb-2"></div>
             </div>
         </div>
 
         <div id="screen-result" class="absolute inset-0 bottom-8 glass-panel z-[60] hidden flex-col items-center justify-center p-6 text-white no-scrollbar overflow-y-auto">
             <div class="flex flex-col items-center w-full max-w-[320px]">
-                <div id="result-icon" class="w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(0,0,0,0.5)]"></div>
-                <h2 id="result-title" class="text-2xl sm:text-3xl font-black mb-1 text-center tracking-wide"></h2>
-                <p id="result-desc" class="text-slate-300 text-center mb-4 text-sm px-2 leading-relaxed"></p>
-                <div id="score-section" class="w-full hidden bg-[#0F172A] p-5 rounded-2xl border border-slate-700/50 shadow-2xl mb-4">
+                <div id="result-icon" class="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(0,0,0,0.5)]"></div>
+                <h2 id="result-title" class="text-3xl sm:text-4xl font-black mb-1 text-center tracking-wide"></h2>
+                <p id="result-desc" class="text-slate-300 text-center mb-5 text-sm sm:text-base px-2 leading-relaxed"></p>
+                <div id="score-section" class="w-full hidden bg-[#0F172A] p-5 rounded-3xl border border-slate-700/50 shadow-2xl mb-4">
                     <div class="text-center mb-4 pb-4 border-b border-slate-800">
-                        <div class="text-[10px] text-slate-500 font-bold mb-1 tracking-widest uppercase" id="res-score-label">綜合績效分數</div>
-                        <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 font-mono" id="result-score">0</div>
+                        <div class="text-xs text-slate-500 font-bold mb-1 tracking-widest uppercase" id="res-score-label">綜合績效分數</div>
+                        <div class="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 font-mono" id="result-score">0</div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-2 gap-x-2 mb-4 text-[11px] font-mono font-bold">
+                    <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-5 text-xs sm:text-sm font-mono font-bold">
                         <div class="text-slate-500" id="res-stat-sat">經濟產值</div><div class="text-right text-blue-400" id="res-val-sat">+0</div>
                         <div class="text-slate-500" id="res-stat-car">碳排懲罰</div><div class="text-right text-red-400" id="res-val-car">-0</div>
                         <div class="text-slate-500" id="res-stat-bat">剩餘獎勵</div><div class="text-right text-emerald-400" id="res-val-bat">+0</div>
                     </div>
-                    <div class="space-y-3">
+                    <div class="space-y-4">
                         <div>
-                            <label class="text-[9px] font-bold text-slate-500 ml-2 tracking-widest uppercase" id="res-name-label">指揮官代號</label>
-                            <input type="text" id="player-name" class="w-full bg-black/50 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-bold focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-center text-base" maxlength="10">
+                            <label class="text-[10px] font-bold text-slate-500 ml-2 tracking-widest uppercase" id="res-name-label">指揮官代號</label>
+                            <input type="text" id="player-name" class="w-full bg-black/50 border border-slate-700 rounded-2xl px-4 py-3.5 text-white font-bold focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-center text-lg shadow-inner" maxlength="10">
                         </div>
-                        <button onclick="submitToFirebase()" id="btn-submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-xl font-bold tracking-widest shadow-lg active:scale-95 transition-all flex justify-center items-center gap-2 text-base">
-                            <span id="res-btn-submit-text">發布至戰情室</span> <i data-lucide="send" class="w-4 h-4"></i>
+                        <button onclick="submitToFirebase()" id="btn-submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-4 rounded-2xl font-bold tracking-widest shadow-lg active:scale-95 transition-all flex justify-center items-center gap-2 text-lg">
+                            <span id="res-btn-submit-text">發布至戰情室</span> <i data-lucide="send" class="w-5 h-5"></i>
                         </button>
                     </div>
                 </div>
@@ -189,12 +189,12 @@
         </div>
 
         <div id="screen-leaderboard" class="absolute inset-0 bottom-8 bg-[#0B1120] z-[70] hidden flex-col transition-all">
-            <div class="px-5 py-4 border-b border-slate-800 flex justify-between items-center bg-slate-900/80 backdrop-blur-md">
-                <h2 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 flex items-center gap-2" id="lb-title">
-                    <i data-lucide="trophy" class="w-5 h-5 text-emerald-400"></i> 戰情室排行榜
+            <div class="px-5 py-5 border-b border-slate-800 flex justify-between items-center bg-slate-900/80 backdrop-blur-md">
+                <h2 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 flex items-center gap-2" id="lb-title">
+                    <i data-lucide="trophy" class="w-6 h-6 text-emerald-400"></i> 戰情室排行榜
                 </h2>
                 <button onclick="closeLeaderboard()" class="text-slate-400 hover:text-white transition-colors active:scale-95">
-                    <i data-lucide="x" class="w-6 h-6"></i>
+                    <i data-lucide="x" class="w-7 h-7"></i>
                 </button>
             </div>
             <div class="flex-1 overflow-y-auto p-4 space-y-3 no-scrollbar" id="leaderboard-list">
@@ -225,7 +225,7 @@
                 introBtn: "啟動 EMS 系統",
                 introRank: "🏆 觀看戰情室排行榜",
                 helpTitle: "遊戲說明",
-                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>接下來 60 秒代表現實 <span class='text-emerald-400 font-black'>24 小時</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>白天：</strong>太陽能充電、維持經濟產值</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>夜晚：</strong>關設施省電，<strong class='text-rose-400'>但會產生民怨或損失！</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>發電機：</strong>緊急供電，但有嚴重碳排懲罰</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs tracking-wide text-center mb-1.5'>❌ 失敗：電池耗盡 或 醫院斷電</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 高分秘笈：</p><ul class='text-[10px] text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>盡量保持設施開啟（避免產值損失）。</li><li>不到生死關頭，<strong class='text-amber-400'>絕對不要開發電機</strong>（狂扣分）。</li><li>結束時電池剩越多，獎勵越高！</li></ul></div>",
+                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>接下來 60 秒代表現實 <span class='text-emerald-400 font-black'>24 小時</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>白天：</strong>太陽能充電、維持經濟產值</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>夜晚：</strong>關設施省電，<strong class='text-rose-400'>但會產生民怨或損失！</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>發電機：</strong>緊急供電，但有嚴重碳排懲罰</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ 失敗：電池耗盡 或 醫院斷電</p><p class='text-emerald-400 font-black text-sm sm:text-base tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 高分秘笈：</p><ul class='text-[11px] sm:text-xs text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>盡量保持設施開啟（避免產值損失）。</li><li>不到生死關頭，<strong class='text-amber-400'>絕對不要開發電機</strong>（狂扣分）。</li><li>結束時電池剩越多，獎勵越高！</li></ul></div>",
                 helpClose: "了解！",
                 gameTime: "虛擬時間",
                 gameSat: "當前績效",
@@ -236,7 +236,7 @@
                 statusCharge: "充電",
                 statusDischarge: "放電",
                 genName: "備用發電機",
-                genCost: "-10/s",
+                genCost: "-10 pts/s",
                 resScoreLabel: "綜合績效分數",
                 resNameLabel: "指揮官代號",
                 resNamePlaceholder: "輸入你的名字",
@@ -268,7 +268,7 @@
                 introBtn: "Start EMS",
                 introRank: "🏆 View Leaderboard",
                 helpTitle: "How to Play",
-                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>Next 60s is <span class='text-emerald-400 font-black'>24 Hours</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>Day:</strong> Solar charge & keep economy running</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>Night:</strong> Turn off to save power, <strong class='text-rose-400'>expect complaints/loss!</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>Generator:</strong> Power with Carbon penalty</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs tracking-wide text-center mb-1.5'>❌ Fail: Battery dies OR Hospital loses power</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 How to Win Big:</p><ul class='text-[10px] text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>Keep facilities ON as much as possible.</li><li>Avoid Generator <strong class='text-amber-400'>at all costs</strong>.</li><li>End with high battery for bonuses!</li></ul></div>",
+                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>Next 60s is <span class='text-emerald-400 font-black'>24 Hours</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>Day:</strong> Solar charge & keep economy running</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>Night:</strong> Turn off to save power, <strong class='text-rose-400'>expect complaints/loss!</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>Generator:</strong> Power with Carbon penalty</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ Fail: Battery dies OR Hospital loses power</p><p class='text-emerald-400 font-black text-sm sm:text-base tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 How to Win Big:</p><ul class='text-[10px] text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>Keep facilities ON as much as possible.</li><li>Avoid Generator <strong class='text-amber-400'>at all costs</strong>.</li><li>End with high battery for bonuses!</li></ul></div>",
                 helpClose: "Got it!",
                 gameTime: "Virtual Time",
                 gameSat: "Performance",
@@ -279,7 +279,7 @@
                 statusCharge: "Charge",
                 statusDischarge: "Discharge",
                 genName: "Diesel Generator",
-                genCost: "-10/s",
+                genCost: "-10 pts/s",
                 resScoreLabel: "Total Score",
                 resNameLabel: "Commander ID",
                 resNamePlaceholder: "Enter your name",
@@ -448,7 +448,7 @@
             if (netPower >= 0) { netEl.innerText = '+' + netPower + ' kW'; netEl.className = 'font-mono text-xs tracking-tight font-black text-emerald-400'; } else { netEl.innerText = netPower + ' kW'; netEl.className = 'font-mono text-xs tracking-tight font-black text-rose-400'; }
             let totalScore = Math.floor(state.satisfaction) - state.carbon;
             document.getElementById('ui-total-score').innerText = totalScore;
-            document.getElementById('ui-battery-text').innerHTML = `<span class="text-slate-200">${Math.floor(state.battery)} / ${state.maxBattery}</span>`;
+            document.getElementById('ui-battery-text').innerHTML = `<span class="text-slate-200 font-black">${Math.floor(state.battery)} / ${state.maxBattery}</span>`;
             const pct = Math.max(0, (state.battery / state.maxBattery) * 100);
             const bar = document.getElementById('ui-battery-bar');
             bar.style.width = `${pct}%`;
@@ -477,9 +477,9 @@
             document.getElementById('score-section').classList.add('hidden');
             document.getElementById('btn-restart').classList.remove('hidden');
             const icon = document.getElementById('result-icon');
-            icon.className = 'w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(244,63,94,0.4)] bg-rose-500/20 text-rose-500 border border-rose-500/50';
-            icon.innerHTML = '<i data-lucide="triangle-alert" class="w-8 h-8"></i>';
-            document.getElementById('result-title').className = 'text-2xl sm:text-3xl font-black mb-2 text-center text-rose-500 tracking-wide';
+            icon.className = 'w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(244,63,94,0.4)] bg-rose-500/20 text-rose-500 border border-rose-500/50';
+            icon.innerHTML = '<i data-lucide="triangle-alert" class="w-10 h-10"></i>';
+            document.getElementById('result-title').className = 'text-3xl sm:text-4xl font-black mb-2 text-center text-rose-500 tracking-wide';
             updateResultText(); lucide.createIcons();
         }
 
@@ -490,7 +490,7 @@
             document.getElementById('score-section').classList.remove('hidden');
             document.getElementById('btn-restart').classList.add('hidden');
             const icon = document.getElementById('result-icon');
-            icon.className = 'w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(52,211,153,0.4)] bg-emerald-500/20 text-emerald-400 border border-emerald-500/50';
+            icon.className = 'w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(52,211,153,0.4)] bg-emerald-500/20 text-emerald-400 border border-emerald-500/50';
             icon.innerHTML = '<i data-lucide="shield-check" class="w-10 h-10"></i>';
             document.getElementById('result-title').className = 'text-2xl sm:text-3xl font-black mb-2 text-center text-emerald-400 tracking-wide';
             let satScore = Math.floor(state.satisfaction); let carScore = state.carbon; let batBonus = Math.floor(state.battery * 0.1);
@@ -538,7 +538,7 @@
                 list.innerHTML = '';
                 records.forEach((r, idx) => {
                     const rankColor = idx === 0 ? 'text-yellow-400' : (idx === 1 ? 'text-slate-300' : (idx === 2 ? 'text-amber-600' : 'text-slate-500'));
-                    list.innerHTML += `<div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 p-4 rounded-xl flex items-center justify-between shadow-sm"><div class="flex items-center gap-4"><div class="w-8 font-black ${rankColor} text-xl text-center">#${idx + 1}</div><div class="font-bold text-slate-200 truncate max-w-[140px] sm:max-w-[180px] text-base">${r.name || 'Anonymous'}</div></div><div class="text-right"><div class="font-mono font-black text-emerald-400 text-xl">${r.score || 0} <span class="text-[11px] text-emerald-600 font-bold">pts</span></div></div></div>`;
+                    list.innerHTML += `<div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 p-4 rounded-xl flex items-center justify-between shadow-sm"><div class="flex items-center gap-4"><div class="w-8 font-black ${rankColor} text-xl text-center">#${idx + 1}</div><div class="font-bold text-slate-200 truncate max-w-[140px] sm:max-w-[180px] text-base font-bold">${r.name || 'Anonymous'}</div></div><div class="text-right"><div class="font-mono font-black text-emerald-400 text-xl">${r.score || 0} <span class="text-[11px] text-emerald-600 font-bold">pts</span></div></div></div>`;
                 });
             });
         };
