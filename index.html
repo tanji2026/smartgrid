@@ -77,8 +77,8 @@
         </div>
 
         <div id="screen-game" class="absolute inset-0 bottom-8 hidden flex-col bg-[#0B1120] z-40">
-            <div class="glass-panel border-b-0 py-2 px-3 flex flex-col gap-1.5 shadow-lg z-20 relative rounded-b-xl">
-                <div class="absolute top-0 left-0 h-2.5 bg-slate-800 w-full rounded-t-xl"></div>
+            <div class="glass-panel border-b-0 py-2.5 px-4 flex flex-col gap-1.5 shadow-lg z-20 relative rounded-b-2xl">
+                <div class="absolute top-0 left-0 h-2.5 bg-slate-800 w-full rounded-t-2xl"></div>
                 <div id="time-progress-bar" class="absolute top-0 left-0 h-2.5 bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 w-0 transition-all duration-1000 shadow-[0_0_15px_rgba(52,211,153,1)] rounded-r-full z-10"></div>
 
                 <div class="flex justify-between items-center mt-2">
@@ -103,23 +103,27 @@
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-3 gap-1.5 bg-black/40 p-2 rounded-xl border border-white/5 relative mt-1">
+                <div class="grid grid-cols-4 gap-1 bg-black/40 p-2 rounded-xl border border-white/5 relative mt-1">
                     <div class="text-center">
-                        <div class="text-[9px] text-slate-500 font-bold uppercase" id="game-solar-label">太陽能</div>
-                        <div class="text-sm font-black text-yellow-400 font-mono mt-0.5" id="ui-solar">0</div>
+                        <div class="text-[8px] text-slate-500 font-bold uppercase" id="game-solar-label">太陽能</div>
+                        <div class="text-[11px] font-black text-yellow-400 font-mono mt-0.5" id="ui-solar">0</div>
                     </div>
-                    <div class="text-center border-l border-r border-white/5">
-                        <div class="text-[9px] text-slate-500 font-bold uppercase" id="game-wind-label">風力</div>
-                        <div class="text-sm font-black text-cyan-400 font-mono mt-0.5" id="ui-wind">100</div>
+                    <div class="text-center border-l border-white/5">
+                        <div class="text-[8px] text-slate-500 font-bold uppercase" id="game-wind-label">風力</div>
+                        <div class="text-[11px] font-black text-cyan-400 font-mono mt-0.5" id="ui-wind">100</div>
                     </div>
-                    <div class="text-center">
-                        <div class="text-[9px] text-slate-500 font-bold uppercase" id="game-load-label">總負載</div>
-                        <div class="text-sm font-black text-rose-400 font-mono mt-0.5" id="ui-draw">400</div>
+                    <div class="text-center border-l border-white/5">
+                        <div class="text-[8px] text-slate-500 font-bold uppercase">地熱(基載)</div>
+                        <div class="text-[11px] font-black text-emerald-400 font-mono mt-0.5" id="ui-geo">50</div>
+                    </div>
+                    <div class="text-center border-l border-white/5">
+                        <div class="text-[8px] text-slate-500 font-bold uppercase" id="game-load-label">總負載</div>
+                        <div class="text-[11px] font-black text-rose-400 font-mono mt-0.5" id="ui-draw">400</div>
                     </div>
                 </div>
             </div>
 
-            <div class="px-4 py-2 flex flex-col gap-1 relative z-10">
+            <div class="px-4 py-2.5 flex flex-col gap-1.5 relative z-10">
                 <div class="flex justify-between items-end mb-0.5">
                     <span class="text-xs font-bold text-slate-400 tracking-wider uppercase" id="game-net-label">ESS 淨流向</span>
                     <span id="ui-net-power" class="font-mono text-base tracking-tight font-black text-rose-400">-150 kW</span>
@@ -128,7 +132,7 @@
                     <div id="ui-battery-bar" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300"></div>
                 </div>
                 <div class="text-right text-[10px] sm:text-xs text-slate-500 font-mono font-bold mt-0.5">
-                    <span id="ui-battery-text" class="text-slate-200 text-sm font-black">3000 / 6000</span> kWh
+                    <span id="ui-battery-text" class="text-slate-200 text-sm font-black">3500 / 6000</span> kWh
                 </div>
             </div>
 
@@ -175,7 +179,7 @@
                     <div class="space-y-4">
                         <div>
                             <label class="text-[10px] font-bold text-slate-500 ml-2 tracking-widest uppercase" id="res-name-label">指揮官代號</label>
-                            <input type="text" id="player-name" class="w-full bg-black/50 border border-slate-700 rounded-xl px-4 py-3.5 text-white font-bold focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-center text-lg shadow-inner" maxlength="10">
+                            <input type="text" id="player-name" class="w-full bg-black/50 border border-slate-700 rounded-2xl px-4 py-3.5 text-white font-bold focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-center text-lg shadow-inner" maxlength="10">
                         </div>
                         <button onclick="submitToFirebase()" id="btn-submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-4 rounded-2xl font-bold tracking-widest shadow-lg active:scale-95 transition-all flex justify-center items-center gap-2 text-lg">
                             <span id="res-btn-submit-text">發布至戰情室</span> <i data-lucide="send" class="w-5 h-5"></i>
@@ -225,7 +229,7 @@
                 introBtn: "啟動 EMS 系統",
                 introRank: "🏆 觀看戰情室排行榜",
                 helpTitle: "遊戲說明",
-                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>接下來 60 秒代表現實 <span class='text-emerald-400 font-black'>24 小時</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>白天：</strong>太陽能充電、維持經濟產值</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>夜晚：</strong>關設施省電，<strong class='text-rose-400'>但會產生民怨或損失！</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>發電機：</strong>緊急供電，但有嚴重碳排懲罰</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ 失敗：電池耗盡 或 醫院斷電</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 高分秘笈：</p><ul class='text-[11px] sm:text-xs text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>盡量保持設施開啟（避免產值損失）。</li><li>不到生死關頭，<strong class='text-amber-400'>絕對不要開發電機</strong>（狂扣分）。</li><li>結束時電池剩越多，獎勵越高！</li></ul></div>",
+                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>接下來 60 秒代表現實 <span class='text-emerald-400 font-black'>24 小時</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>白天：</strong>太陽能充電、維持經濟產值</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>夜晚：</strong>關設施省電，<strong class='text-rose-400'>但會產生民怨或損失！</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌍</span> <span class='leading-tight'><strong class='text-white'>地熱：</strong>穩定基載電力，全天候供應</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>發電機：</strong>緊急供電，但有嚴重碳排懲罰</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ 失敗：電池耗盡 或 醫院斷電</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 高分秘笈：</p><ul class='text-[11px] sm:text-xs text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>盡量保持設施開啟（避免產值損失）。</li><li>不到生死關頭，<strong class='text-amber-400'>絕對不要開發電機</strong>（狂扣分）。</li><li>結束時電池剩越多，獎勵越高！</li></ul></div>",
                 helpClose: "了解！",
                 gameTime: "虛擬時間",
                 gameSat: "當前績效",
@@ -236,7 +240,7 @@
                 statusCharge: "充電",
                 statusDischarge: "放電",
                 genName: "備用發電機",
-                genCost: "-10/s",
+                genCost: "-10 pts/s",
                 resScoreLabel: "綜合績效分數",
                 resNameLabel: "指揮官代號",
                 resNamePlaceholder: "輸入你的名字",
@@ -268,7 +272,7 @@
                 introBtn: "Start EMS",
                 introRank: "🏆 View Leaderboard",
                 helpTitle: "How to Play",
-                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>Next 60s is <span class='text-emerald-400 font-black'>24 Hours</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>Day:</strong> Solar charge & keep economy running</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>Night:</strong> Turn off to save power, <strong class='text-rose-400'>expect complaints/loss!</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>Generator:</strong> Power with Carbon penalty</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ Fail: Battery dies OR Hospital loses power</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 How to Win Big:</p><ul class='text-[10px] text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>Keep facilities ON as much as possible.</li><li>Avoid Generator <strong class='text-amber-400'>at all costs</strong>.</li><li>End with high battery for bonuses!</li></ul></div>",
+                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>Next 60s is <span class='text-emerald-400 font-black'>24 Hours</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>Day:</strong> Solar charge & keep economy running</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>Night:</strong> Turn off to save power, <strong class='text-rose-400'>expect complaints/loss!</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌍</span> <span class='leading-tight'><strong class='text-white'>Geo:</strong> Baseload power 24/7</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>Generator:</strong> Power with Carbon penalty</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ Fail: Battery dies OR Hospital loses power</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 How to Win Big:</p><ul class='text-[10px] text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>Keep facilities ON as much as possible.</li><li>Avoid Generator <strong class='text-amber-400'>at all costs</strong>.</li><li>End with high battery for bonuses!</li></ul></div>",
                 helpClose: "Got it!",
                 gameTime: "Virtual Time",
                 gameSat: "Performance",
@@ -318,7 +322,7 @@
             { id: 'residential', name: { zh: '住宅社區', en: 'Residential' }, icon: 'home', draw: 50, critical: false, color: 'slate', lossType: 'lossComplaint' }
         ];
 
-        let state = { status: 'intro', time: 60, battery: 3000, maxBattery: 6000, solarMod: 1.0, windMod: 1.0, solarCurrent: 0, windCurrent: 100, genOn: false, satisfaction: 0, carbon: 0, finalScore: 0, facilities: [], failReason: '' };
+        let state = { status: 'intro', time: 60, battery: 3500, maxBattery: 6000, solarMod: 1.0, windMod: 1.0, geoCurrent: 50, solarCurrent: 0, windCurrent: 100, genOn: false, satisfaction: 0, carbon: 0, finalScore: 0, facilities: [], failReason: '' };
         let timerInterval = null;
         let eventTimer = 0;
         let currentLang = 'zh';
@@ -371,7 +375,7 @@
                 game.style.display = 'flex';
                 game.classList.remove('hidden');
                 game.classList.add('fade-in');
-                state.status = 'playing'; state.time = 60; state.battery = 3000; state.solarMod = 1.0; state.windMod = 1.0; state.satisfaction = 0; state.carbon = 0; state.finalScore = 0; state.failReason = ''; eventTimer = 0;
+                state.status = 'playing'; state.time = 60; state.battery = 3500; state.solarMod = 1.0; state.windMod = 1.0; state.satisfaction = 0; state.carbon = 0; state.finalScore = 0; state.failReason = ''; eventTimer = 0;
                 initFacilities(); updateDashboard();
                 if (timerInterval) clearInterval(timerInterval);
                 timerInterval = setInterval(gameTick, 1000);
@@ -449,16 +453,16 @@
             if (state.genOn) {
                 bgFx.classList.remove('hidden');
                 iconBg.classList.replace('bg-slate-800/80', 'bg-amber-500');
-                icon.classList.replace('text-slate-500', 'text-white');
+                icon.setAttribute('class', 'w-5 h-5 text-white transition-colors');
                 toggleBg.classList.replace('bg-slate-700', 'bg-amber-500');
-                toggleDot.classList.replace('translate-x-0', 'translate-x-3.5');
+                toggleDot.style.transform = 'translateX(20px)';
                 toggleDot.classList.replace('bg-slate-300', 'bg-white');
             } else {
                 bgFx.classList.add('hidden');
                 iconBg.classList.replace('bg-amber-500', 'bg-slate-800/80');
-                icon.classList.replace('text-white', 'text-slate-500');
+                icon.setAttribute('class', 'w-5 h-5 text-slate-500 transition-colors');
                 toggleBg.classList.replace('bg-amber-500', 'bg-slate-700');
-                toggleDot.classList.replace('translate-x-3.5', 'translate-x-0');
+                toggleDot.style.transform = 'translateX(0px)';
                 toggleDot.classList.replace('bg-white', 'bg-slate-300');
             }
         }
@@ -505,15 +509,24 @@
             
             let totalDraw = 0;
             state.facilities.forEach(f => { if (f.isOn) totalDraw += f.draw; });
-            let supply = state.solarCurrent + state.windCurrent;
+            
+            document.getElementById('ui-solar').innerText = state.solarCurrent;
+            document.getElementById('ui-wind').innerText = Math.floor(state.windCurrent);
+            document.getElementById('ui-geo').innerText = state.geoCurrent;
+            document.getElementById('ui-draw').innerText = totalDraw;
+
+            let supply = state.solarCurrent + state.windCurrent + state.geoCurrent;
             if (state.genOn) supply += 200;
             let netPower = Math.floor(supply - totalDraw);
             
-            document.getElementById('ui-draw').innerText = totalDraw;
-            document.getElementById('ui-solar').innerText = state.solarCurrent;
-            document.getElementById('ui-wind').innerText = Math.floor(state.windCurrent);
             const netEl = document.getElementById('ui-net-power');
-            if (netPower >= 0) { netEl.innerText = '+' + netPower + ' kW'; netEl.className = 'font-mono text-base tracking-tight font-black text-emerald-400'; } else { netEl.innerText = netPower + ' kW'; netEl.className = 'font-mono text-base tracking-tight font-black text-rose-400'; }
+            if (netPower >= 0) { 
+                netEl.innerText = '+' + netPower + ' kW'; 
+                netEl.className = 'font-mono text-base tracking-tight font-black text-emerald-400'; 
+            } else { 
+                netEl.innerText = netPower + ' kW'; 
+                netEl.className = 'font-mono text-base tracking-tight font-black text-rose-400'; 
+            }
             
             let totalScore = Math.floor(state.satisfaction) - state.carbon;
             document.getElementById('ui-total-score').innerText = totalScore;
@@ -522,18 +535,36 @@
             const pct = Math.max(0, (state.battery / state.maxBattery) * 100);
             const bar = document.getElementById('ui-battery-bar');
             bar.style.width = `${pct}%`;
-            if (pct > 50) { bar.className = 'h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300 shadow-[0_0_12px_rgba(52,211,153,0.8)] rounded-r-full'; } else if (pct > 20) { bar.className = 'h-full bg-gradient-to-r from-amber-400 to-yellow-500 w-full transition-all duration-300 shadow-[0_0_12px_rgba(250,204,21,0.8)] rounded-r-full'; } else { bar.className = 'h-full bg-gradient-to-r from-rose-500 to-red-600 w-full transition-all duration-300 shadow-[0_0_12px_rgba(244,63,94,0.8)] animate-pulse rounded-r-full'; }
+            if (pct > 50) { bar.className = 'h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300 shadow-[0_0_12px_rgba(52,211,153,0.8)] rounded-r-full'; } 
+            else if (pct > 20) { bar.className = 'h-full bg-gradient-to-r from-amber-400 to-yellow-500 w-full transition-all duration-300 shadow-[0_0_12px_rgba(250,204,21,0.8)] rounded-r-full'; } 
+            else { bar.className = 'h-full bg-gradient-to-r from-rose-500 to-red-600 w-full transition-all duration-300 shadow-[0_0_12px_rgba(244,63,94,0.8)] animate-pulse rounded-r-full'; }
         }
 
         function gameTick() {
             if (state.status !== 'playing') return;
             let totalDraw = 0;
-            state.facilities.forEach(f => { if (f.isOn) { totalDraw += f.draw; if (!f.critical) state.satisfaction += (f.draw / 10); } else { if (!f.critical) state.satisfaction -= (f.draw / 15); } });
+            state.facilities.forEach(f => { 
+                if (f.isOn) { 
+                    totalDraw += f.draw; 
+                    if (!f.critical) state.satisfaction += (f.draw / 10); 
+                } else { 
+                    if (!f.critical) state.satisfaction -= (f.draw / 15); 
+                } 
+            });
             if (state.genOn) state.carbon += 10;
-            if (Math.random() > 0.5) { let baseWind = 100 * state.windMod; state.windCurrent = Math.max(0, baseWind + (Math.random() * 40 - 20)); }
-            eventTimer++; if (eventTimer >= 10) { triggerEvent(); eventTimer = 0; }
-            let supply = state.solarCurrent + state.windCurrent; if (state.genOn) supply += 200;
-            let netPower = supply - totalDraw; state.battery += netPower; if (state.battery > state.maxBattery) state.battery = state.maxBattery;
+            if (Math.random() > 0.5) { 
+                let baseWind = 100 * state.windMod; 
+                state.windCurrent = Math.max(0, baseWind + (Math.random() * 40 - 20)); 
+            }
+            eventTimer++; 
+            if (eventTimer >= 10) { triggerEvent(); eventTimer = 0; }
+            
+            let supply = state.solarCurrent + state.windCurrent + state.geoCurrent; 
+            if (state.genOn) supply += 200;
+            let netPower = supply - totalDraw; 
+            state.battery += netPower; 
+            if (state.battery > state.maxBattery) state.battery = state.maxBattery;
+            
             state.time -= 1;
             if (state.battery <= 0) { state.battery = 0; updateDashboard(); gameOver('battery_dead'); return; }
             if (state.time <= 0) { state.time = 0; updateDashboard(); victory(); return; }
