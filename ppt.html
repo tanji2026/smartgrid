@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧電網與微電網：邁向淨零碳排的未來能源藍圖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THE SETUP */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #cbd5e1;
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 1fr;
+            min-height: 100vh;
+            padding: 30px 0;
+            place-items: center;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .slide-container {
+            align-items: center;
+            background-color: #0f172a; /* Slate 900 */
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            height: 720px;
+            justify-content: center;
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+            color: #f8fafc;
+        }
+
+        /* Generic Background Design Elements */
+        .slide-container.standard-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, rgba(15,23,42,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .slide-container > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 2. CONSISTENT TYPOGRAPHY */
+        h1, h2, h3, h4 {
+            color: #f8fafc;
+            font-weight: 700;
+        }
+
+        p, li, .subtitle {
+            color: #cbd5e1; /* Slate 300 */
+            line-height: 1.6;
+        }
+
+        .accent-text {
+            color: #06b6d4; /* Cyan 500 */
+        }
+
+        h1 { font-size: 64px; letter-spacing: 2px; line-height: 1.2; }
+        
+        .slide-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: left;
+            width: 100%;
+            border-left: 8px solid #06b6d4;
+            padding-left: 20px;
+        }
+
+        h3 { font-size: 28px; margin-bottom: 16px; color: #e2e8f0; }
+        
+        p, li { font-size: 20px; }
+        
+        .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            margin-top: 24px;
+            color: #94a3b8;
+        }
+
+        .content-area {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* 3. PAGE NUMBERS */
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 18px;
+            color: #64748b;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .page-number::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: #06b6d4;
+        }
+
+        /* 4. LAYOUT DEFINITIONS */
+        /* Title Layout */
+        .title-layout {
+            text-align: center;
+            max-width: 1000px;
+        }
+
+        /* Section Title Layout */
+        .section-title-layout {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .section-title-layout h2 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            color: #06b6d4;
+        }
+
+        .section-title-layout hr {
+            background-color: #334155;
+            border: none;
+            height: 2px;
+            margin: 30px auto;
+            width: 150px;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            width: 100%;
+        }
+
+        .two-column.tiled {
+            align-items: stretch;
+        }
+
+        .two-column.tiled > div {
+            background-color: #1e293b;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            padding: 50px 40px;
+        }
+
+        .two-column.tiled h3 {
+            color: #06b6d4;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* Image Right Text Left Layout */
+        .image-wrapper {
+            border-radius: 16px;
+            height: 400px;
+            max-width: 100%;
+            overflow: hidden;
+            width: 100%;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            background-color: #1e293b; /* Fallback color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .image-wrapper img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Abstract CSS Placeholder for Images to avoid unpredictable links */
+        .css-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #06b6d4 150%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #334155;
+            font-size: 80px;
+            opacity: 0.8;
+        }
+
+        .text-content p {
+            margin-bottom: 20px;
+        }
+
+        /* Tiled Text With Icons Layout */
+        .tiled-content {
+            align-items: stretch;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .tile {
+            align-items: center;
+            background-color: #1e293b;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: flex-start;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tile .icon {
+            background-color: #0f172a;
+            color: #06b6d4;
+            font-size: 40px;
+            height: 90px;
+            width: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            border: 2px solid #334155;
+        }
+
+        /* Styled Bullet Points Layout */
+        .bullet-list {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .bullet-list ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .bullet-list li {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 25px 30px 25px 80px;
+            position: relative;
+            border-left: 6px solid #06b6d4;
+        }
+
+        .bullet-list i {
+            color: #06b6d4;
+            font-size: 28px;
+            left: 25px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Professional Tech Gradient Background (replaces anime images) */
+        .tech-gradient-bg {
+            background: radial-gradient(circle at center, #082f49 0%, #020617 100%);
+            position: relative;
+        }
+
+        .tech-gradient-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(6, 182, 212, 0.05) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.05) 2px, transparent 2px);
+            background-size: 40px 40px;
+            z-index: 0;
+        }
+
+        .tech-gradient-bg .content-overlay {
+            text-align: center;
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .tech-gradient-bg h2 {
+            font-size: 64px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        /* Bleed Layout Modification for CSS shapes */
+        .slide-container.bleed-layout {
+            align-items: start;
+            display: grid;
+            gap: 60px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            padding: 0;
+        }
+
+        .slide-container.bleed-layout > .content-container {
+            padding: 60px 0 60px 60px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .bleed-shape-side {
+            height: 720px;
+            width: 100%;
+            background: linear-gradient(225deg, #0f172a 0%, #082f49 50%, #06b6d4 150%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e293b;
+            font-size: 120px;
+        }
+
+        .bleed-text-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .bleed-text-side p {
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+
+        /* Q&A Layout */
+        .qa-layout {
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+            align-self: center;
+        }
+
+        .qa-layout h2 {
+            font-size: 80px;
+            margin-bottom: 30px;
+            color: #06b6d4;
+        }
+
+        .qa-layout p {
+            font-size: 28px;
+            margin-bottom: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Slide 01: Title_Slide (Professional Tech Gradient) -->
+<div class="slide-container tech-gradient-bg" id="slide1">
+    <div class="content-overlay">
+        <h1>智慧電網與微電網</h1>
+        <p class="subtitle" style="font-size: 32px; color: #06b6d4;">邁向淨零碳排的未來能源藍圖</p>
+    </div>
+    <div class="page-number">01/22</div>
+</div>
+
+<!-- Slide 02: Section_Title -->
+<div class="slide-container standard-bg" id="slide2">
+    <div class="section-title-layout">
+        <h2 style="color: #f8fafc;">一、 概念極簡報與核心痛點</h2>
+        <hr>
+        <p>探討傳統電力系統的脆弱性，以及技術革新的必要性</p>
+    </div>
+    <div class="page-number">02/22</div>
+</div>
+
+<!-- Slide 03: Image_Right_Text_Left -->
+<div class="slide-container standard-bg" id="slide3">
+    <h2 class="slide-title">傳統電網的核心痛點</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="text-content">
+                <h3>單向集中的供電風險</h3>
+                <p>傳統電力系統採用由發電廠到用戶端的單向集中式供電架構。這種模式缺乏彈性，在面對極端氣候或是單一重大設備故障時，極易引發連鎖反應，導致大範圍的骨牌效應停電。</p>
+                <p>此外，傳統電網難以有效容納看天吃飯的再生能源。太陽能與風力發電的間歇性特質，容易對電網造成嚴重的電壓震盪，甚至威脅整體的供電穩定度。</p>
+            </div>
+            <div>
+                <div class="image-wrapper">
+                    <div class="css-placeholder"><i class="fa-solid fa-tower-observation"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">03/22</div>
+</div>
+
+<!-- Slide 04: Two_Column_Tiled_Text -->
+<div class="slide-container standard-bg" id="slide4">
+    <h2 class="slide-title">智慧轉型與區域韌性</h2>
+    <div class="content-area">
+        <div class="two-column tiled">
+            <div>
+                <h3>智慧電網的宏觀調度</h3>
+                <p>將先進的資通訊技術導入電力系統，使其成為一個具備感知能力的國家級神經網路。透過雙向的資訊流與電力流，調度中心能夠即時掌握各地的供需狀況，精準分配電力，徹底改變過去被動供電的模式。</p>
+            </div>
+            <div>
+                <h3>微電網的微觀自治</h3>
+                <p>賦予特定區域自治能力的獨立能源系統。平時可與主電網相連互助，當遭遇天災或大停電時，微電網能夠迅速切換至孤島模式，利用內部的儲能與綠能設施獨立供電，確保關鍵設施維持運作。</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">04/22</div>
+</div>
+
+<!-- Slide 05: Tiled_Text_With_Icons (NEW) -->
+<div class="slide-container standard-bg" id="slide5">
+    <h2 class="slide-title">智慧電網的核心架構</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-solar-panel"></i></div>
+                <h3>發電端彈性調度</h3>
+                <p>整合多元化的發電資源，包含大型傳統電廠與分散式再生能源，透過即時數據分析，進行最佳化的發電排程與調度。</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                <h3>輸配電自動化</h3>
+                <p>在變電所與輸電線路上建置自動化感測設備，當發生線路故障時能瞬間定位並隔離故障區間，大幅縮短停電時間。</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-house-signal"></i></div>
+                <h3>用戶端雙向通訊</h3>
+                <p>藉由智慧電表與家庭能源管理系統，讓用戶不僅是電力的消耗者，更能成為提供多餘電力的生產者，實現雙向互動。</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">05/22</div>
+</div>
+
+<!-- Slide 06: Tiled_Text_With_Icons (NEW) -->
+<div class="slide-container standard-bg" id="slide6">
+    <h2 class="slide-title">微電網的關鍵基礎模組</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-wind"></i></div>
+                <h3>分散式電源</h3>
+                <p>微電網內部的自主能量來源，通常以太陽能、風力發電或生質能為主，並搭配小型柴油發電機作為最後的備用電力。</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-battery-full"></i></div>
+                <h3>智慧型儲能系統</h3>
+                <p>扮演微電網的心臟。負責吸收再生能源過剩的電力，並在發電量不足或切換至孤島模式時，穩定地釋放電力維持運作。</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-microchip"></i></div>
+                <h3>微電網控制器</h3>
+                <p>大腦樞紐。負責監控內部所有的發電、儲能與負載設備，並決定何時該與外部主電網併聯或斷開，確保區域內的電壓與頻率穩定。</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">06/22</div>
+</div>
+
+<!-- Slide 07: Section_Title -->
+<div class="slide-container standard-bg" id="slide7">
+    <div class="section-title-layout">
+        <h2 style="color: #f8fafc;">二、 系統優勢與現實瓶頸分析</h2>
+        <hr>
+        <p>客觀檢視導入效益，並正視推廣過程中的限制與挑戰</p>
+    </div>
+    <div class="page-number">07/22</div>
+</div>
+
+<!-- Slide 08: Two_Column_Tiled_Text -->
+<div class="slide-container standard-bg" id="slide8">
+    <h2 class="slide-title">系統導入的總體經濟效益</h2>
+    <div class="content-area">
+        <div class="two-column tiled">
+            <div>
+                <h3>削峰填谷降低發電成本</h3>
+                <p>透過時間電價機制與需量反應，精準引導用戶於離峰時段用電，有效降低尖峰用電負載，進而減少國家興建昂貴尖峰備用發電廠的巨大資金投入，提升整體資產利用率。</p>
+            </div>
+            <div>
+                <h3>提升國家級電網韌性</h3>
+                <p>分散式的供電架構打破了傳統將所有雞蛋放在同一個籃子裡的風險。當遭遇天災或突發事故，具備孤島運作能力的區域能自給自足，大幅縮小停電範圍並加速災後復原。</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">08/22</div>
+</div>
+
+<!-- Slide 09: Styled_Bullet_Points (NEW) -->
+<div class="slide-container standard-bg" id="slide9">
+    <h2 class="slide-title">環境效益與企業永續發展</h2>
+    <div class="content-area">
+        <div class="bullet-list">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-earth-americas"></i>
+                    大幅提升電網對間歇性綠能的容受力，加速汰換高污染燃煤電廠，實質降低溫室氣體排放。
+                </li>
+                <li>
+                    <i class="fa-solid fa-building-circle-check"></i>
+                    協助大型企業透過建置廠區微電網，取得綠電憑證，達成國際供應鏈對淨零碳排的嚴格要求。
+                </li>
+                <li>
+                    <i class="fa-solid fa-recycle"></i>
+                    結合退役電動車電池作為微電網的二手儲能設備，創造電池生命週期的循環經濟效益。
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-number">09/22</div>
+</div>
+
+<!-- Slide 10: Styled_Bullet_Points -->
+<div class="slide-container standard-bg" id="slide10">
+    <h2 class="slide-title">現實推廣的瓶頸與限制</h2>
+    <div class="content-area">
+        <div class="bullet-list">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    全面汰換舊有電力基礎設施與佈建智慧電表，需要極為龐大的初期建置資金與極長的回本週期。
+                </li>
+                <li>
+                    <i class="fa-solid fa-network-wired"></i>
+                    市面上各家設備的通訊協定標準尚未完全統一，導致跨系統的資料整合與對接困難重重。
+                </li>
+                <li>
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                    大型鋰電池儲能系統面臨成本居高不下、循環壽命限制，以及熱失控引發火災的嚴峻安全挑戰。
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-number">10/22</div>
+</div>
+
+<!-- Slide 11: Section_Title -->
+<div class="slide-container standard-bg" id="slide11">
+    <div class="section-title-layout">
+        <h2 style="color: #f8fafc;">三、 應用現況與指標性案例深度解析</h2>
+        <hr>
+        <p>從國家級別的調度、地方社區實作，到國際前沿應用</p>
+    </div>
+    <div class="page-number">11/22</div>
+</div>
+
+<!-- Slide 12: Image_Right_Text_Left -->
+<div class="slide-container standard-bg" id="slide12">
+    <h2 class="slide-title">宏觀應用：智慧型電表與虛擬電廠</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="text-content">
+                <h3>化零為整的能源調度網</h3>
+                <p>智慧型電表是構成智慧電網的最末端神經，能夠即時且精確地回傳用戶端的用電行為數據，取代傳統的定期人工抄表。</p>
+                <p>在宏觀層面，虛擬電廠技術利用雲端系統，將分散在各地的太陽能板、儲能設備甚至家用冷氣聚合起來。在電網需要支援時，虛擬電廠可以統一調控這些資源，甚至代表參與電力交易市場，發揮如同實體發電廠的強大效用。</p>
+            </div>
+            <div>
+                <div class="image-wrapper">
+                    <div class="css-placeholder"><i class="fa-solid fa-server"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">12/22</div>
+</div>
+
+<!-- Slide 13: Bleed_Layout -->
+<div class="slide-container bleed-layout" id="slide13">
+    <div class="content-container">
+        <h2 class="slide-title">微觀應用：屏東光采濕地微電網</h2>
+        <div class="content-area">
+            <div class="bleed-text-side">
+                <h3>八八風災後的韌性重生</h3>
+                <p>屏東林邊光采濕地是全台首座達到商轉規模的防災型微電網。在經歷八八風災的重創後，當地積極轉型，將易淹水地區打造成綠能示範基地。</p>
+                <p>該專案成功整合了太陽能、風能與生質能，並搭配先進的能源管理系統與儲能設施。當遭遇極端氣候導致外部電力中斷時，光采濕地能夠切換至孤島模式，維持長達七十二小時的關鍵電力供應，展現極高的防災韌性。</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="bleed-shape-side"><i class="fa-solid fa-water"></i></div>
+    </div>
+    <div class="page-number">13/22</div>
+</div>
+
+<!-- Slide 14: Image_Right_Text_Left -->
+<div class="slide-container standard-bg" id="slide14">
+    <h2 class="slide-title">微觀應用：澎湖七美綠能微電網示範園區</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="text-content">
+                <h3>打造低碳島嶼的能源典範</h3>
+                <p>澎湖七美過去高度仰賴成本高昂且高污染的傳統柴油發電機進行供電。為了解決離島供電困境，政府建置了具備指標意義的綠能微電網示範園區。</p>
+                <p>透過大規模導入太陽光電與風力發電系統，並搭配儲能設備來平滑再生能源的波動，七美島大幅提升了綠色能源的使用率。這不僅有效降低了對柴油燃料的依賴與碳排放，更為台灣其他離島或偏鄉地區提供了極佳的低碳轉型參考模型。</p>
+            </div>
+            <div>
+                <div class="image-wrapper">
+                     <div class="css-placeholder"><i class="fa-solid fa-fan"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">14/22</div>
+</div>
+
+<!-- Slide 15: Image_Right_Text_Left (NEW) -->
+<div class="slide-container standard-bg" id="slide15">
+    <h2 class="slide-title">國際案例：美國布魯克林微電網</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="text-content">
+                <h3>顛覆傳統的鄰里綠電交易</h3>
+                <p>位於紐約的布魯克林微電網，是全球第一個將區塊鏈技術完美應用於區域電力市場的指標性案例。</p>
+                <p>當地社區居民在自家屋頂安裝太陽能板後，可以將多餘的綠電，透過區塊鏈平台以點對點的方式直接賣給同社區內需要用電的鄰居。這種去中心化的交易模式，不僅打破了傳統電力公司的壟斷，更大幅提高了社區發展綠能的經濟誘因與向心力。</p>
+            </div>
+            <div>
+                <div class="image-wrapper">
+                    <div class="css-placeholder"><i class="fa-brands fa-hive"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">15/22</div>
+</div>
+
+<!-- Slide 16: Section_Title -->
+<div class="slide-container standard-bg" id="slide16">
+    <div class="section-title-layout">
+        <h2 style="color: #f8fafc;">四、 發展趨勢與未來挑戰</h2>
+        <hr>
+        <p>迎接前沿科技的浪潮與必須跨越的嚴峻障礙</p>
+    </div>
+    <div class="page-number">16/22</div>
+</div>
+
+<!-- Slide 17: Tiled_Text_With_Icons -->
+<div class="slide-container standard-bg" id="slide17">
+    <h2 class="slide-title">前沿發展趨勢</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-car-on"></i></div>
+                <h3>車對網反向供電</h3>
+                <p>隨著電動車普及，大量的電動車將成為城市中移動的巨大行動電源。在尖峰時刻將電力反向送回電網，發揮巨大的穩定作用。</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-brain"></i></div>
+                <h3>人工智慧預測</h3>
+                <p>利用深度學習演算法分析巨量天氣與用電數據，極度精準地預測明日的負載需求與太陽能發電量，提前進行調度決策。</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-link"></i></div>
+                <h3>區塊鏈電力交易</h3>
+                <p>利用區塊鏈去中心化且不可竄改的特性，讓區域內的居民與企業可以進行安全透明的點對點綠電買賣，促進能源民主化。</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">17/22</div>
+</div>
+
+<!-- Slide 18: Two_Column_Tiled_Text (NEW) -->
+<div class="slide-container standard-bg" id="slide18">
+    <h2 class="slide-title">儲能技術的關鍵演進</h2>
+    <div class="content-area">
+        <div class="two-column tiled">
+            <div>
+                <h3>次世代電池技術突破</h3>
+                <p>為了克服現有鋰電池的起火風險與壽命限制，全球正全力研發固態電池。固態電池採用固體電解質，具備極高的安全性與能量密度，未來將成為微電網儲能系統的主力軍。</p>
+            </div>
+            <div>
+                <h3>多元化長效儲能發展</h3>
+                <p>除了化學電池，為了應付長達數天甚至跨季節的能源短缺，發展氫能儲能與現代化抽蓄水力等長效型物理儲能技術，是支撐百分之百再生能源電網的最後一塊拼圖。</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">18/22</div>
+</div>
+
+<!-- Slide 19: Two_Column_Tiled_Text -->
+<div class="slide-container standard-bg" id="slide19">
+    <h2 class="slide-title">面臨的嚴峻挑戰</h2>
+    <div class="content-area">
+        <div class="two-column tiled">
+            <div>
+                <h3>國家基礎設施的資安風險</h3>
+                <p>當電力系統全面高度聯網，駭客攻擊與惡意程式入侵成為國安等級的危機。一旦能源管理系統或智慧電表遭受大規模癱瘓，將對國家經濟與社會運作造成毀滅性的打擊，建構零信任的資安防禦網刻不容緩。</p>
+            </div>
+            <div>
+                <h3>鴨子曲線帶來的供需失衡</h3>
+                <p>隨著白天太陽能發電量劇增，大幅壓低了傳統發電需求；然而傍晚太陽下山時，正好是民眾下班回家的用電尖峰。這種短時間內發電量驟降卻需求大增的現象，極度考驗電網快速起載的調度極限與設備承受力。</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">19/22</div>
+</div>
+
+<!-- Slide 20: Styled_Bullet_Points (NEW) -->
+<div class="slide-container standard-bg" id="slide20">
+    <h2 class="slide-title">法規政策與市場機制改革</h2>
+    <div class="content-area">
+        <div class="bullet-list">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-gavel"></i>
+                    推動電力交易市場全面自由化，允許民間企業與聚合商公平參與電力輔助服務市場，打破單一電業壟斷。
+                </li>
+                <li>
+                    <i class="fa-solid fa-clock"></i>
+                    擴大實施動態時間電價與需量反應機制，運用價格誘因改變民眾與企業的用電習慣，從源頭削峰填谷。
+                </li>
+                <li>
+                    <i class="fa-solid fa-file-contract"></i>
+                    完善綠電躉購費率的退場機制與企業購電合約的法規配套，引導再生能源發展回歸正常的商業市場競爭機制。
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-number">20/22</div>
+</div>
+
+<!-- Slide 21: Full_Background_Image (Replaced with Tech Gradient) -->
+<div class="slide-container tech-gradient-bg" id="slide21">
+    <div class="content-overlay">
+        <h2>五、 總結與展望</h2>
+        <p class="subtitle" style="font-size: 24px; color: #cbd5e1;">智慧電網與微電網的結合，不僅是單純的工程技術升級，更是全球邁向淨零碳排與落實能源轉型的關鍵核心鑰匙。唯有克服法規與資安挑戰，方能建構永續的能源未來。</p>
+    </div>
+    <div class="page-number">21/22</div>
+</div>
+
+<!-- Slide 22: Q&A -->
+<div class="slide-container standard-bg" id="slide22">
+    <div class="qa-layout">
+        <h2>結語與提問</h2>
+        <p style="color: #cbd5e1;">感謝各位的聆聽，歡迎指教</p>
+    </div>
+    <div class="page-number">22/22</div>
+</div>
+
+</body>
+</html>
+```
