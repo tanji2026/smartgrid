@@ -28,8 +28,8 @@
     <div id="app-container" class="w-full max-w-md h-full relative bg-[#0B1120] shadow-2xl flex flex-col overflow-hidden sm:border-x sm:border-slate-800">
         
         <!-- 全域 右下角說明按鈕 -->
-        <button onclick="openHelp()" class="absolute bottom-12 right-4 z-[90] bg-slate-800/80 backdrop-blur-md text-slate-300 p-3 rounded-full border border-slate-600 hover:bg-slate-700 hover:text-white transition-all shadow-lg active:scale-95">
-            <i data-lucide="help-circle" class="w-6 h-6"></i>
+        <button onclick="openHelp()" class="absolute bottom-10 right-4 z-[90] bg-slate-800/80 backdrop-blur-md text-slate-300 p-2.5 rounded-full border border-slate-600 hover:bg-slate-700 hover:text-white transition-all shadow-lg active:scale-95">
+            <i data-lucide="help-circle" class="w-5 h-5"></i>
         </button>
 
         <!-- 說明彈出視窗 (Modal) -->
@@ -52,31 +52,31 @@
 
         <!-- 1. 介紹畫面 (首頁) -->
         <div id="screen-intro" class="absolute inset-0 bottom-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-[#0B1120] to-black z-50 flex flex-col items-center justify-center px-5 text-white transition-all overflow-hidden">
-            
             <button onclick="toggleLang()" class="absolute top-4 right-4 z-[100] bg-white/10 backdrop-blur-md text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold border border-white/10 hover:bg-white/20 transition-all flex items-center gap-1.5 shadow-lg">
                 <i data-lucide="globe" class="w-3.5 h-3.5"></i> <span id="lang-btn-text">EN</span>
             </button>
 
-            <div class="relative mb-6 flex flex-col items-center mt-2">
-                <div class="mb-4 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 flex items-center gap-2 animate-pulse">
+            <div class="relative mb-4 flex flex-col items-center mt-2">
+                <div class="mb-3 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 flex items-center gap-2 animate-pulse">
                     <i data-lucide="triangle-alert" class="w-4 h-4"></i>
                     <span class="font-bold text-sm tracking-widest" id="intro-alert">外部電網異常</span>
                 </div>
-                <div class="w-40 h-40 md:w-48 md:h-48 animate-float relative z-10">
+                <div class="w-36 h-36 md:w-44 md:h-44 animate-float relative z-10">
                     <img src="https://raw.githubusercontent.com/tanji2026/ccus/main/tanjibaby.png" alt="碳吉" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(16,185,129,0.3)]">
                 </div>
                 <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl z-0"></div>
             </div>
 
-            <div class="space-y-6 text-center w-full max-w-[320px] relative z-10">
+            <div class="space-y-5 text-center w-full max-w-[320px] relative z-10">
                 <h1 class="text-3xl sm:text-4xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-400" id="intro-title">微電網救援行動</h1>
-                
-                <p class="text-slate-300 font-bold text-sm tracking-widest" id="intro-subtitle">
+                <p class="text-slate-300 font-bold text-sm tracking-widest leading-relaxed" id="intro-subtitle">
                     主系統故障！我是工程師碳吉。<br>請協助接管區域能源管理系統。
                 </p>
-
-                <button onclick="startGame()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-4 rounded-full font-black tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.3)] pulse-glow active:scale-95 transition-all flex justify-center items-center gap-2 mt-4">
-                    <span id="intro-btn">啟動 EMS 系統</span> <i data-lucide="power" class="w-5 h-5"></i>
+                <button onclick="startGame()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-3.5 rounded-full font-black tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.3)] pulse-glow active:scale-95 transition-all flex justify-center items-center gap-2 mt-4">
+                    <span id="intro-btn-text">啟動 EMS 系統</span> <i data-lucide="power" class="w-5 h-5"></i>
+                </button>
+                <button onclick="openLeaderboard()" class="w-full text-emerald-400 font-bold text-xs tracking-widest hover:text-emerald-300 transition-colors mt-2" id="intro-btn-rank">
+                    🏆 觀看戰情室排行榜
                 </button>
             </div>
         </div>
@@ -84,14 +84,14 @@
         <!-- 2. 遊戲主畫面 -->
         <div id="screen-game" class="absolute inset-0 bottom-8 hidden flex-col bg-[#0B1120] z-40">
             <!-- 頂部儀表板 -->
-            <div class="glass-panel border-b-0 py-2 px-3 flex flex-col gap-2 shadow-lg z-20 relative rounded-b-2xl">
+            <div class="glass-panel border-b-0 py-2 px-3 flex flex-col gap-1.5 shadow-lg z-20 relative rounded-b-2xl">
                 <div class="absolute top-0 left-0 h-1 bg-slate-800 w-full"></div>
                 <div id="time-progress-bar" class="absolute top-0 left-0 h-1 bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 w-0 transition-all duration-1000 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></div>
 
                 <div class="flex justify-between items-center mt-1">
                     <div class="flex flex-col">
                         <span class="text-[9px] text-slate-400 font-bold tracking-wider uppercase mb-0.5" id="game-time-label">虛擬時間 (24H)</span>
-                        <div class="text-xl font-black text-white font-mono flex items-center gap-1.5 tracking-tight" id="ui-clock-container">
+                        <div class="text-lg font-black text-white font-mono flex items-center gap-1.5 tracking-tight" id="ui-clock-container">
                             <i data-lucide="sun" id="time-icon" class="w-4 h-4 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]"></i>
                             <span id="ui-virtual-time">00:00</span>
                         </div>
@@ -99,82 +99,75 @@
                     
                     <div class="flex flex-col items-end">
                         <span class="text-[9px] text-slate-400 font-bold tracking-wider uppercase mb-0.5" id="game-score-title">當前績效</span>
-                        <div class="text-lg font-black text-emerald-400 font-mono flex items-center gap-1">
+                        <div class="text-base font-black text-emerald-400 font-mono flex items-center gap-1">
                             <span id="ui-total-score">0</span> <span class="text-[9px] text-emerald-600">pts</span>
-                        </div>
-                        <div class="flex gap-2 text-[9px] font-mono justify-end mt-0.5 font-bold">
-                            <span class="text-blue-400 flex items-center gap-0.5" id="ui-satisfaction"><i data-lucide="coins" class="w-3 h-3"></i> 0</span>
-                            <span class="text-red-400 flex items-center gap-0.5" id="ui-carbon"><i data-lucide="cloud-fog" class="w-3 h-3"></i> 0</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-3 gap-1 bg-black/30 p-1.5 rounded-lg border border-white/5 relative">
-                    <div id="ui-event-banner" class="absolute -top-3 left-1/2 transform -translate-x-1/2 hidden bg-slate-800/90 backdrop-blur text-white border border-slate-600 px-2 py-0.5 rounded-full text-[9px] font-bold flex items-center gap-1 shadow-xl z-20 whitespace-nowrap">
+                <div class="grid grid-cols-3 gap-1 bg-black/30 p-1 rounded-lg border border-white/5 relative">
+                    <div id="ui-event-banner" class="absolute -top-2.5 left-1/2 transform -translate-x-1/2 hidden bg-slate-800/90 backdrop-blur text-white border border-slate-600 px-2 py-0.5 rounded-full text-[9px] font-bold flex items-center gap-1 shadow-xl z-20 whitespace-nowrap">
                         <i data-lucide="zap" class="w-3 h-3 text-amber-400 animate-pulse"></i> <span id="ui-event-text">天氣突變！</span>
                     </div>
 
                     <div class="text-center">
                         <div class="text-[8px] text-slate-500 font-bold" id="game-solar-label">太陽能</div>
-                        <div class="text-xs font-black text-yellow-400 font-mono mt-0.5" id="ui-solar">0</div>
+                        <div class="text-[11px] font-black text-yellow-400 font-mono" id="ui-solar">0</div>
                     </div>
                     <div class="text-center border-l border-r border-white/5">
                         <div class="text-[8px] text-slate-500 font-bold" id="game-wind-label">風力</div>
-                        <div class="text-xs font-black text-cyan-400 font-mono mt-0.5" id="ui-wind">100</div>
+                        <div class="text-[11px] font-black text-cyan-400 font-mono" id="ui-wind">100</div>
                     </div>
                     <div class="text-center">
                         <div class="text-[8px] text-slate-500 font-bold" id="game-load-label">總負載</div>
-                        <div class="text-xs font-black text-rose-400 font-mono mt-0.5" id="ui-draw">400</div>
+                        <div class="text-[11px] font-black text-rose-400 font-mono" id="ui-draw">400</div>
                     </div>
                 </div>
             </div>
 
             <!-- 電池狀態區 -->
-            <div class="px-4 py-2 flex flex-col gap-1 relative z-10">
+            <div class="px-4 py-1.5 flex flex-col gap-1 relative z-10">
                 <div class="flex justify-between items-end">
                     <span class="text-[9px] font-bold text-slate-400 tracking-wider" id="game-net-label">ESS 淨流向</span>
-                    <span id="ui-net-power" class="font-mono text-sm tracking-tight font-black text-rose-400">-150 kW</span>
+                    <span id="ui-net-power" class="font-mono text-xs tracking-tight font-black text-rose-400">-150 kW</span>
                 </div>
-                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700 relative shadow-inner">
+                <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700 relative shadow-inner">
                     <div id="ui-battery-bar" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300"></div>
                 </div>
-                <div class="text-right text-[9px] text-slate-500 font-mono font-bold">
+                <div class="text-right text-[8px] text-slate-500 font-mono font-bold">
                     <span id="ui-battery-text" class="text-slate-300">3000 / 6000</span> kWh
                 </div>
             </div>
 
-            <!-- 設施控制區 -->
-            <div class="flex-1 overflow-y-auto px-3 pb-6 flex flex-col gap-2 no-scrollbar z-0 relative">
+            <!-- 設施控制區 (超緊湊高密度) -->
+            <div class="flex-1 overflow-y-auto px-2 pb-2 flex flex-col gap-1 no-scrollbar z-0 relative">
                 
                 <!-- 備用發電機卡片 -->
-                <div class="bg-gradient-to-r from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-xl border border-amber-500/30 p-2 shadow-sm relative overflow-hidden flex-shrink-0 cursor-pointer active:scale-[0.98] transition-transform" onclick="toggleGenerator()">
+                <div class="bg-gradient-to-r from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-lg border border-amber-500/30 p-1.5 shadow-sm relative overflow-hidden flex-shrink-0 cursor-pointer active:scale-[0.98] transition-transform" onclick="toggleGenerator()">
                     <div id="gen-bg-fx" class="absolute inset-0 bg-amber-500/10 hidden animate-pulse"></div>
-                    <div class="flex justify-between items-center relative z-10">
+                    <div class="flex justify-between items-center relative z-10 px-1">
                         <div class="flex items-center gap-2.5">
-                            <div id="gen-icon-bg" class="bg-slate-800/80 border border-slate-700 w-9 h-9 rounded-lg flex items-center justify-center shadow-inner flex-shrink-0 transition-colors">
-                                <i data-lucide="flame" id="gen-icon" class="w-4 h-4 text-slate-500 transition-colors"></i>
+                            <div id="gen-icon-bg" class="bg-slate-800/80 border border-slate-700 w-7 h-7 rounded-md flex items-center justify-center shadow-inner flex-shrink-0 transition-colors">
+                                <i data-lucide="flame" id="gen-icon" class="w-3.5 h-3.5 text-slate-500 transition-colors"></i>
                             </div>
                             <div>
-                                <div class="flex items-center gap-1.5 mb-0.5">
-                                    <h3 class="font-bold text-sm text-amber-500" id="game-gen-name">備用發電機</h3>
-                                    <span class="bg-amber-500/20 text-amber-400 text-[8px] px-1.5 py-0.5 rounded font-black border border-amber-500/30" id="game-gen-badge">高碳排</span>
+                                <div class="flex items-center gap-1.5">
+                                    <h3 class="font-bold text-[11px] text-amber-500" id="game-gen-name">備用發電機</h3>
                                 </div>
-                                <div class="text-[10px] font-mono font-bold flex gap-2">
+                                <div class="text-[9px] font-mono font-bold flex gap-1.5">
                                     <span class="text-emerald-400">+200 kW</span>
                                     <span class="text-red-400" id="game-gen-cost">-10 碳排/秒</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="pl-1">
-                            <div id="gen-toggle-bg" class="w-10 h-6 rounded-full bg-slate-700 relative transition-colors shadow-inner flex items-center p-1 border border-slate-600">
-                                <div id="gen-toggle-dot" class="w-4 h-4 rounded-full bg-slate-300 shadow-sm transform transition-transform duration-300 translate-x-0"></div>
-                            </div>
+                        <div id="gen-toggle-bg" class="w-8 h-4.5 rounded-full bg-slate-700 relative transition-colors shadow-inner flex items-center p-0.5 border border-slate-600">
+                            <div id="gen-toggle-dot" class="w-3.5 h-3.5 rounded-full bg-slate-300 shadow-sm transform transition-transform duration-300 translate-x-0"></div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 動態生成的負載設施 -->
-                <div id="facilities-container" class="flex flex-col gap-1.5"></div>
+                <!-- 10個設施高密度雙欄網格 -->
+                <div id="facilities-container" class="grid grid-cols-2 gap-1.5"></div>
             </div>
         </div>
 
@@ -183,7 +176,7 @@
             <div class="flex flex-col items-center w-full max-w-[320px]">
                 <div id="result-icon" class="w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(0,0,0,0.5)]"></div>
                 <h2 id="result-title" class="text-2xl sm:text-3xl font-black mb-1 text-center tracking-wide"></h2>
-                <p id="result-desc" class="text-slate-300 text-center mb-5 text-xs sm:text-sm px-2 leading-relaxed"></p>
+                <p id="result-desc" class="text-slate-300 text-center mb-4 text-xs sm:text-sm px-2 leading-relaxed"></p>
 
                 <div id="score-section" class="w-full hidden bg-[#0F172A] p-4 rounded-2xl border border-slate-700/50 shadow-2xl mb-4">
                     <div class="text-center mb-4 pb-4 border-b border-slate-800">
@@ -203,17 +196,35 @@
                             <input type="text" id="player-name" class="w-full bg-black/50 border border-slate-700 rounded-xl px-3 py-2.5 mt-1 text-white font-bold focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-center text-sm" maxlength="10">
                         </div>
                         <button onclick="submitToFirebase()" id="btn-submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-xl font-bold tracking-widest shadow-lg active:scale-95 transition-all flex justify-center items-center gap-2 text-sm">
-                            <span id="res-btn-submit">發布至戰情室</span> <i data-lucide="send" class="w-4 h-4"></i>
+                            <span id="res-btn-submit-text">發布至戰情室</span> <i data-lucide="send" class="w-3.5 h-3.5"></i>
                         </button>
                     </div>
                 </div>
 
-                <button id="btn-restart" onclick="resetGame()" class="text-slate-500 hover:text-white font-bold tracking-widest text-xs transition-colors hidden">
+                <button id="btn-restart" onclick="resetGame()" class="text-slate-500 hover:text-white font-bold tracking-widest text-xs transition-colors hidden mt-2">
                     <span id="res-btn-restart">重新挑戰</span>
                 </button>
             </div>
         </div>
 
+        <!-- 4. 排行榜 (戰情室) -->
+        <div id="screen-leaderboard" class="absolute inset-0 bottom-8 bg-[#0B1120] z-[70] hidden flex-col transition-all">
+            <div class="px-5 py-4 border-b border-slate-800 flex justify-between items-center bg-slate-900/80 backdrop-blur-md">
+                <h2 class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 flex items-center gap-2" id="lb-title">
+                    <i data-lucide="trophy" class="w-5 h-5 text-emerald-400"></i> 戰情室排行榜
+                </h2>
+                <button onclick="closeLeaderboard()" class="text-slate-400 hover:text-white transition-colors active:scale-95">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4 space-y-2 no-scrollbar" id="leaderboard-list">
+                <div class="flex items-center justify-center h-32 text-slate-500 text-sm font-bold animate-pulse">
+                    <i data-lucide="loader-2" class="w-5 h-5 mr-2 animate-spin"></i> 載入資料中...
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部版權 -->
         <div class="absolute bottom-0 w-full h-8 flex items-center justify-center bg-slate-950 border-t border-slate-900 z-[100] px-2">
             <p class="text-[8px] sm:text-[9px] text-slate-600 font-medium text-center truncate w-full tracking-wider" id="global-footer">
                 能源經濟學 - 智慧電網｜作品受著作權法保護，未經授權請勿複製轉載｜歡迎聯絡我們：tanji2026@gmail.com
@@ -222,7 +233,12 @@
 
     </div>
 
-    <script>
+    <!-- Firebase SDK (Canvas 環境必須嚴格遵守模組化引入) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
         // --- i18n ---
         const i18n = {
             zh: {
@@ -231,26 +247,25 @@
                 introTitle: "微電網救援行動",
                 introSubtitle: "主系統故障！我是工程師碳吉。<br>請協助接管區域能源管理系統。",
                 introBtn: "啟動 EMS 系統",
+                introRank: "🏆 觀看戰情室排行榜",
                 helpTitle: "遊戲說明",
                 helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>接下來 60 秒代表現實 <span class='text-emerald-400 font-black'>24 小時</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>白天：</strong>太陽能充電、維持經濟產值</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>夜晚：</strong>關設施省電，<strong class='text-rose-400'>但會造成經濟損失！</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>發電機：</strong>緊急供電，但有嚴重碳排懲罰</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs tracking-wide text-center mb-1.5'>❌ 失敗：電池耗盡 或 醫院斷電</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 高分秘笈：</p><ul class='text-[10px] text-slate-300 list-disc pl-4 space-y-1 font-bold mt-1.5'><li>盡量保持設施開啟（賺取經濟產值）。</li><li>不到生死關頭，<strong class='text-amber-400'>絕對不要開發電機</strong>（狂扣分）。</li><li>結束時電池剩越多，獎勵越高！</li></ul></div>",
                 helpClose: "了解！",
                 gameTime: "虛擬時間 (24H)",
-                gameSat: "綜合營運績效",
+                gameSat: "當前績效",
                 gameSolar: "太陽能",
                 gameWind: "風力",
                 gameLoad: "總負載",
                 gameNet: "ESS 淨流向",
                 statusCharge: "充電",
                 statusDischarge: "放電",
-                criticalBadge: "關鍵",
                 genName: "備用發電機",
-                genBadge: "高碳排",
                 genCost: "-10 碳排/秒",
                 resScoreLabel: "綜合績效分數",
                 resNameLabel: "指揮官代號",
                 resNamePlaceholder: "輸入你的名字",
                 resBtnSubmit: "發布至戰情室",
-                resBtnRestart: "重新挑戰",
+                resBtnRestart: "返回首頁",
                 statSat: "經濟產值得分",
                 statCar: "碳排懲罰",
                 statBat: "剩餘電量獎勵",
@@ -261,14 +276,10 @@
                 failBattery: "碳吉：電量耗盡了！<br>微電網全面停擺，我們未能撐到救援到來...",
                 successDesc: "碳吉：太棒了！挺過了一整天。<br>精準的綠能調度與發電機管控，成功守護了醫院！",
                 alertName: "請輸入指揮官代號！",
-                alertSuccess: "上傳成功！\n玩家：{0}\n總分：{1}",
-                events: {
-                    cloudy: "烏雲密布！太陽能驟降",
-                    windy: "強風襲來！風力激增",
-                    sunny: "雲霧散去！太陽能滿載",
-                    nowind: "無風之日！風力停擺",
-                    stable: "氣候穩定"
-                }
+                lbTitle: "戰情室排行榜",
+                lbLoading: "載入資料中...",
+                lbEmpty: "目前還沒有紀錄，成為第一位挑戰者吧！",
+                events: { cloudy: "烏雲密布！太陽能驟降", windy: "強風襲來！風力激增", sunny: "雲霧散去！太陽能滿載", nowind: "無風之日！風力停擺", stable: "氣候穩定" }
             },
             en: {
                 pageTitle: "Microgrid Rescue - EMS",
@@ -276,6 +287,7 @@
                 introTitle: "Microgrid Rescue",
                 introSubtitle: "System down! I'm Engineer TanJi.<br>Please help manage the microgrid.",
                 introBtn: "Start EMS",
+                introRank: "🏆 View Leaderboard",
                 helpTitle: "How to Play",
                 helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>Next 60s is <span class='text-emerald-400 font-black'>24 Hours</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>Day:</strong> Solar charge & keep economy running</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>Night:</strong> Turn off to save power, <strong class='text-rose-400'>lose economy!</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>Generator:</strong> Power with Carbon penalty</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs tracking-wide text-center mb-1.5'>❌ Fail: Battery dies OR Hospital loses power</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 How to Win Big:</p><ul class='text-[10px] text-slate-300 list-disc pl-4 space-y-1 font-bold mt-1.5'><li>Keep facilities ON as much as possible.</li><li>Avoid Generator <strong class='text-amber-400'>at all costs</strong>.</li><li>End with high battery for bonuses!</li></ul></div>",
                 helpClose: "Got it!",
@@ -287,15 +299,13 @@
                 gameNet: "ESS Net Flow",
                 statusCharge: "Charge",
                 statusDischarge: "Discharge",
-                criticalBadge: "Critical",
                 genName: "Diesel Generator",
-                genBadge: "High Carbon",
                 genCost: "-10 CO2/s",
                 resScoreLabel: "Total Score",
                 resNameLabel: "Commander ID",
                 resNamePlaceholder: "Enter your name",
                 resBtnSubmit: "Publish Score",
-                resBtnRestart: "Try Again",
+                resBtnRestart: "Back to Home",
                 statSat: "Economic Score",
                 statCar: "Carbon Penalty",
                 statBat: "Battery Bonus",
@@ -306,54 +316,53 @@
                 failBattery: "TanJi: Battery depleted!<br>The microgrid collapsed, we couldn't make it...",
                 successDesc: "TanJi: Great job! We survived the day.<br>Smart dispatching protected the hospital!",
                 alertName: "Please enter Commander ID!",
-                alertSuccess: "Upload Successful!\nPlayer: {0}\nTotal Score: {1}",
-                events: {
-                    cloudy: "Clouds! Solar Drops",
-                    windy: "Strong Winds! Wind Surge",
-                    sunny: "Clear Sky! Solar Max",
-                    nowind: "No Wind! Wind Stops",
-                    stable: "Weather Stable"
-                }
+                lbTitle: "Leaderboard",
+                lbLoading: "Loading data...",
+                lbEmpty: "No records yet, be the first challenger!",
+                events: { cloudy: "Clouds! Solar Drops", windy: "Strong Winds! Wind Surge", sunny: "Clear Sky! Solar Max", nowind: "No Wind! Wind Stops", stable: "Weather Stable" }
             }
         };
 
+        // 10 大設施 (超高密度)，調整了耗電量總和以維持遊戲難度
         const FACILITY_CONFIG = [
             { id: 'hospital', name: { zh: '地區醫院', en: 'Hospital' }, icon: 'cross', draw: 60, critical: true, color: 'rose' },
-            { id: 'factory', name: { zh: '重型工業區', en: 'Factory' }, icon: 'factory', draw: 120, critical: false, color: 'amber' },
+            { id: 'gov', name: { zh: '政府機關', en: 'Gov Agency' }, icon: 'landmark', draw: 30, critical: false, color: 'violet' },
+            { id: 'finance', name: { zh: '金融機構', en: 'Bank' }, icon: 'briefcase', draw: 30, critical: false, color: 'emerald' },
+            { id: 'transit', name: { zh: '大眾運輸', en: 'Transit' }, icon: 'train', draw: 40, critical: false, color: 'sky' },
+            { id: 'water', name: { zh: '自來水廠', en: 'Water Plant' }, icon: 'droplets', draw: 40, critical: false, color: 'cyan' },
+            { id: 'telecom', name: { zh: '通訊基地', en: 'Telecom' }, icon: 'radio-tower', draw: 30, critical: false, color: 'fuchsia' },
+            { id: 'office', name: { zh: '商辦大樓', en: 'Office Bldg' }, icon: 'building', draw: 50, critical: false, color: 'teal' },
+            { id: 'factory', name: { zh: '重型工業區', en: 'Factory' }, icon: 'factory', draw: 100, critical: false, color: 'amber' },
             { id: 'mall', name: { zh: '大型商場', en: 'Shopping Mall' }, icon: 'shopping-cart', draw: 70, critical: false, color: 'blue' },
             { id: 'residential', name: { zh: '住宅社區', en: 'Residential' }, icon: 'home', draw: 50, critical: false, color: 'indigo' }
         ];
 
         let currentLang = 'zh';
 
-        function toggleLang() {
+        window.toggleLang = function() {
             currentLang = currentLang === 'zh' ? 'en' : 'zh';
             document.getElementById('lang-btn-text').innerText = currentLang === 'zh' ? 'EN' : '中';
             updateStaticText();
-        }
+            if(state.status === 'playing') renderFacilities();
+        };
 
-        function openHelp() {
+        window.openHelp = function() {
             const modal = document.getElementById('help-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex', 'fade-in');
-            
-            // 如果在遊戲中打開說明，暫停計時
             if (state.status === 'playing' && timerInterval) {
-                clearInterval(timerInterval);
-                timerInterval = null;
+                clearInterval(timerInterval); timerInterval = null;
             }
-        }
+        };
 
-        function closeHelp() {
+        window.closeHelp = function() {
             const modal = document.getElementById('help-modal');
             modal.classList.add('hidden');
             modal.classList.remove('flex', 'fade-in');
-            
-            // 如果在遊戲中關閉說明，恢復計時
             if (state.status === 'playing' && !timerInterval) {
                 timerInterval = setInterval(gameTick, 1000);
             }
-        }
+        };
 
         function updateStaticText() {
             const t = i18n[currentLang];
@@ -361,7 +370,8 @@
             document.getElementById('intro-alert').innerText = t.introAlert;
             document.getElementById('intro-title').innerText = t.introTitle;
             document.getElementById('intro-subtitle').innerHTML = t.introSubtitle;
-            document.getElementById('intro-btn').innerHTML = `${t.introBtn} <i data-lucide="power" class="w-4 h-4 ml-1"></i>`;
+            document.getElementById('intro-btn-text').innerText = t.introBtn;
+            document.getElementById('intro-btn-rank').innerText = t.introRank;
             
             document.getElementById('help-title').innerHTML = `<i data-lucide="book-open" class="w-5 h-5"></i> ${t.helpTitle}`;
             document.getElementById('help-content').innerHTML = t.helpContent;
@@ -375,13 +385,12 @@
             document.getElementById('game-net-label').innerText = t.gameNet;
             
             document.getElementById('game-gen-name').innerText = t.genName;
-            document.getElementById('game-gen-badge').innerText = t.genBadge;
             document.getElementById('game-gen-cost').innerText = t.genCost;
 
             document.getElementById('res-score-label').innerText = t.resScoreLabel;
             document.getElementById('res-name-label').innerText = t.resNameLabel;
             document.getElementById('player-name').placeholder = t.resNamePlaceholder;
-            document.getElementById('res-btn-submit').innerHTML = `${t.resBtnSubmit} <i data-lucide="send" class="w-3.5 h-3.5 ml-1"></i>`;
+            document.getElementById('res-btn-submit-text').innerText = t.resBtnSubmit;
             document.getElementById('res-btn-restart').innerText = t.resBtnRestart;
             
             document.getElementById('res-stat-sat').innerText = t.statSat;
@@ -389,8 +398,32 @@
             document.getElementById('res-stat-bat').innerText = t.statBat;
 
             document.getElementById('global-footer').innerText = t.footer;
+            
+            document.getElementById('lb-title').innerHTML = `<i data-lucide="trophy" class="w-5 h-5 text-emerald-400"></i> ${t.lbTitle}`;
             lucide.createIcons();
         }
+
+        // --- Firebase 初始化 ---
+        const fallbackConfig = { apiKey: "AIzaSyDMBE9BjTJb70xm8c5WOZaIITxI0PmYWNc", authDomain: "tanji-ccus.firebaseapp.com", projectId: "tanji-ccus" };
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : fallbackConfig;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'microgrid-v1';
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        let fbUser = null;
+
+        const initAuth = async () => {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (e) { console.error("Firebase Auth Error:", e); }
+        };
+        initAuth();
+        onAuthStateChanged(auth, user => { fbUser = user; });
 
         // --- 遊戲邏輯 ---
         let state = {
@@ -420,12 +453,12 @@
             renderFacilities();
         }
 
-        function toggleGenerator() {
+        window.toggleGenerator = function() {
             if (state.status !== 'playing') return;
             state.genOn = !state.genOn;
             updateGenUI();
             updateDashboard();
-        }
+        };
 
         function updateGenUI() {
             const bgFx = document.getElementById('gen-bg-fx');
@@ -437,20 +470,16 @@
             if (state.genOn) {
                 bgFx.classList.remove('hidden');
                 iconBg.classList.replace('bg-slate-800/80', 'bg-amber-500');
-                iconBg.classList.replace('border-slate-700', 'border-amber-400');
                 icon.classList.replace('text-slate-500', 'text-white');
                 toggleBg.classList.replace('bg-slate-700', 'bg-amber-500');
-                toggleBg.classList.replace('border-slate-600', 'border-amber-400');
-                toggleDot.classList.replace('translate-x-0', 'translate-x-4');
+                toggleDot.classList.replace('translate-x-0', 'translate-x-3.5');
                 toggleDot.classList.replace('bg-slate-300', 'bg-white');
             } else {
                 bgFx.classList.add('hidden');
                 iconBg.classList.replace('bg-amber-500', 'bg-slate-800/80');
-                iconBg.classList.replace('border-amber-400', 'border-slate-700');
                 icon.classList.replace('text-white', 'text-slate-500');
                 toggleBg.classList.replace('bg-amber-500', 'bg-slate-700');
-                toggleBg.classList.replace('border-amber-400', 'border-slate-600');
-                toggleDot.classList.replace('translate-x-4', 'translate-x-0');
+                toggleDot.classList.replace('translate-x-3.5', 'translate-x-0');
                 toggleDot.classList.replace('bg-white', 'bg-slate-300');
             }
         }
@@ -458,39 +487,34 @@
         function renderFacilities() {
             const container = document.getElementById('facilities-container');
             container.innerHTML = '';
-            const t = i18n[currentLang];
             
             state.facilities.forEach((f, index) => {
-                const isCriticalBadge = f.critical ? `<span class="bg-rose-500/20 text-rose-400 text-[8px] px-1 py-0.5 rounded font-black border border-rose-500/30 whitespace-nowrap">${t.criticalBadge}</span>` : '';
-                const statusColor = f.isOn ? `bg-${f.color}-500 shadow-[0_0_10px_rgba(var(--tw-colors-${f.color}-500),0.5)]` : `bg-slate-700/50`;
+                const statusColor = f.isOn ? `bg-${f.color}-500 shadow-[0_0_8px_rgba(var(--tw-colors-${f.color}-500),0.5)]` : `bg-slate-700/50`;
                 const cardBorder = f.isOn ? `border-${f.color}-500/30` : `border-slate-700/50`;
                 const textColor = f.isOn ? `text-white` : `text-slate-500`;
                 const iconColor = f.isOn ? `text-white` : `text-slate-500`;
-                const cardBg = f.isOn ? `bg-slate-800/80` : `bg-slate-900/50`;
+                const cardBg = f.isOn ? `bg-slate-800/90` : `bg-slate-900/60`;
 
+                // 超高密度卡片排版
                 const html = `
-                    <div class="${cardBg} backdrop-blur-md rounded-xl border ${cardBorder} p-2 transition-all duration-300 relative overflow-hidden flex-shrink-0 cursor-pointer hover:border-slate-500 active:scale-[0.98]" onclick="toggleFacility(${index})">
-                        <div class="flex justify-between items-center relative z-10">
-                            <div class="flex items-center gap-2.5">
-                                <div class="${statusColor} w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300 flex-shrink-0 border ${f.isOn ? 'border-white/20' : 'border-slate-600'}">
-                                    <i data-lucide="${f.icon}" class="w-4 h-4 ${iconColor}"></i>
+                    <div class="${cardBg} backdrop-blur-md rounded-lg border ${cardBorder} p-1.5 transition-all duration-300 relative overflow-hidden flex-shrink-0 cursor-pointer hover:border-slate-500 active:scale-[0.98]" onclick="toggleFacility(${index})">
+                        <div class="flex flex-col relative z-10">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="${statusColor} w-6 h-6 rounded-md flex items-center justify-center transition-all duration-300 flex-shrink-0">
+                                        <i data-lucide="${f.icon}" class="w-3.5 h-3.5 ${iconColor}"></i>
+                                    </div>
+                                    <h3 class="font-bold text-[10px] ${textColor} transition-colors tracking-wide truncate max-w-[65px]">${f.name[currentLang]}</h3>
                                 </div>
-                                <div>
-                                    <div class="flex items-center gap-1.5 mb-0.5 flex-wrap">
-                                        <h3 class="font-bold text-sm ${textColor} transition-colors tracking-wide">${f.name[currentLang]}</h3>
-                                        ${isCriticalBadge}
-                                    </div>
-                                    <div class="text-[10px] font-mono ${f.isOn ? 'text-rose-400' : 'text-slate-500'} font-bold">
-                                        ${f.isOn ? '-' + f.draw + ' kW' : (!f.critical ? '<span class="text-rose-500 animate-pulse">⚠️ 經濟損失中</span>' : '0 kW')}
-                                    </div>
+                                <div class="w-7 h-4 rounded-full ${f.isOn ? 'bg-emerald-500' : 'bg-slate-700'} relative transition-colors shadow-inner flex items-center p-0.5 flex-shrink-0">
+                                    <div class="w-3 h-3 rounded-full ${f.isOn ? 'bg-white' : 'bg-slate-300'} shadow-sm transform transition-transform duration-300 ${f.isOn ? 'translate-x-3' : 'translate-x-0'}"></div>
                                 </div>
                             </div>
-                            <div class="pl-1">
-                                <div class="w-10 h-6 rounded-full ${f.isOn ? 'bg-emerald-500 border-emerald-400' : 'bg-slate-700 border-slate-600'} border relative transition-colors shadow-inner flex items-center p-1">
-                                    <div class="w-4 h-4 rounded-full ${f.isOn ? 'bg-white' : 'bg-slate-300'} shadow-sm transform transition-transform duration-300 ${f.isOn ? 'translate-x-4' : 'translate-x-0'}"></div>
-                                </div>
+                            <div class="text-[9px] font-mono ${f.isOn ? 'text-rose-400' : 'text-slate-500'} font-bold">
+                                ${f.isOn ? '-' + f.draw + ' kW' : (!f.critical ? '<span class="text-rose-500 animate-pulse">⚠️ 經濟損失</span>' : '0 kW')}
                             </div>
                         </div>
+                        ${!f.isOn ? '<div class="absolute inset-0 bg-slate-900/40 z-0"></div>' : ''}
                     </div>
                 `;
                 container.insertAdjacentHTML('beforeend', html);
@@ -524,7 +548,7 @@
             }
         }
 
-        function toggleFacility(index) {
+        window.toggleFacility = function(index) {
             if (state.status !== 'playing') return;
             state.facilities[index].isOn = !state.facilities[index].isOn;
             
@@ -534,7 +558,7 @@
             }
             renderFacilities();
             updateDashboard();
-        }
+        };
 
         function updateDashboard() {
             let elapsed = 60 - state.time;
@@ -547,7 +571,7 @@
 
             let sunFactor = Math.sin(Math.PI * (elapsed / 60));
             if (sunFactor < 0) sunFactor = 0;
-            state.solarCurrent = Math.floor(sunFactor * 350 * state.solarMod);
+            state.solarCurrent = Math.floor(sunFactor * 450 * state.solarMod); // 因總負載增加，太陽能極值調升
             
             const timeIcon = document.getElementById('time-icon');
             if (virtualHour >= 6 && virtualHour < 18) {
@@ -577,19 +601,15 @@
             const netEl = document.getElementById('ui-net-power');
             if (netPower >= 0) {
                 netEl.innerText = '+' + netPower + ' kW (' + t.statusCharge + ')';
-                netEl.className = 'font-mono text-sm tracking-tight font-black text-emerald-400';
+                netEl.className = 'font-mono text-xs tracking-tight font-black text-emerald-400';
             } else {
                 netEl.innerText = netPower + ' kW (' + t.statusDischarge + ')';
-                netEl.className = 'font-mono text-sm tracking-tight font-black text-rose-400';
+                netEl.className = 'font-mono text-xs tracking-tight font-black text-rose-400';
             }
 
             let totalScore = Math.floor(state.satisfaction) - state.carbon;
             document.getElementById('ui-total-score').innerText = totalScore;
             
-            document.getElementById('ui-satisfaction').innerHTML = `<i data-lucide="coins" class="w-3 h-3"></i> ${Math.floor(state.satisfaction)}`;
-            document.getElementById('ui-carbon').innerHTML = `<i data-lucide="cloud-fog" class="w-3 h-3"></i> -${state.carbon}`;
-            lucide.createIcons();
-
             document.getElementById('ui-battery-text').innerHTML = `<span class="text-slate-200">${Math.floor(state.battery)} / ${state.maxBattery}</span>`;
             
             const pct = Math.max(0, (state.battery / state.maxBattery) * 100);
@@ -612,19 +632,13 @@
             state.facilities.forEach(f => { 
                 if (f.isOn) {
                     totalDraw += f.draw;
-                    if (!f.critical) {
-                        state.satisfaction += (f.draw / 10);
-                    }
+                    if (!f.critical) state.satisfaction += (f.draw / 10);
                 } else {
-                    if (!f.critical) {
-                        state.satisfaction -= (f.draw / 15); // 停電造成的經濟損失
-                    }
+                    if (!f.critical) state.satisfaction -= (f.draw / 15);
                 }
             });
 
-            if (state.genOn) {
-                state.carbon += 10;
-            }
+            if (state.genOn) state.carbon += 10;
 
             if (Math.random() > 0.5) {
                 let baseWind = 100 * state.windMod;
@@ -663,7 +677,7 @@
             updateDashboard();
         }
 
-        function startGame() {
+        window.startGame = function() {
             const intro = document.getElementById('screen-intro');
             const game = document.getElementById('screen-game');
             
@@ -692,7 +706,7 @@
                 if (timerInterval) clearInterval(timerInterval);
                 timerInterval = setInterval(gameTick, 1000);
             }, 400);
-        }
+        };
 
         function updateResultText() {
             const t = i18n[currentLang];
@@ -701,11 +715,8 @@
 
             if (state.status === 'gameover') {
                 title.innerText = t.failTitle;
-                if (state.failReason === 'hospital_off') {
-                    desc.innerHTML = t.failHospital;
-                } else if (state.failReason === 'battery_dead') {
-                    desc.innerHTML = t.failBattery;
-                }
+                if (state.failReason === 'hospital_off') desc.innerHTML = t.failHospital;
+                else if (state.failReason === 'battery_dead') desc.innerHTML = t.failBattery;
             } else if (state.status === 'victory') {
                 title.innerText = t.successTitle;
                 desc.innerHTML = t.successDesc;
@@ -772,42 +783,120 @@
             lucide.createIcons();
         }
 
-        function resetGame() {
+        window.resetGame = function() {
             document.getElementById('screen-result').style.display = 'none';
             document.getElementById('screen-intro').style.display = 'flex';
             document.getElementById('screen-intro').classList.remove('fade-out');
             document.getElementById('screen-intro').classList.add('fade-in');
             document.getElementById('screen-game').style.display = 'none';
             document.getElementById('time-progress-bar').style.width = '0%';
-        }
+        };
 
-        function submitToFirebase() {
+        window.submitToFirebase = async function() {
             const t = i18n[currentLang];
             const name = document.getElementById('player-name').value.trim();
             const btn = document.getElementById('btn-submit');
             
-            if (!name) {
-                alert(t.alertName);
-                return;
-            }
+            if (!name) { alert(t.alertName); return; }
+            if (!fbUser) { alert("尚未連接到戰情室伺服器，請稍後再試！"); return; }
             
             btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>';
             btn.disabled = true;
             lucide.createIcons();
             
-            setTimeout(() => {
-                let msg = t.alertSuccess
-                    .replace('{0}', name)
-                    .replace('{1}', state.finalScore);
-                alert(msg);
+            try {
+                // 將成績寫入 Firestore
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'leaderboard'), {
+                    name: name,
+                    score: state.finalScore,
+                    batteryLeft: Math.floor(state.battery),
+                    timestamp: serverTimestamp()
+                });
                 
-                resetGame();
-                btn.innerHTML = `<span id="res-btn-submit">${t.resBtnSubmit}</span> <i data-lucide="send" class="w-3.5 h-3.5 ml-1"></i>`;
+                btn.innerHTML = `<span id="res-btn-submit-text">${t.resBtnSubmit}</span> <i data-lucide="send" class="w-3.5 h-3.5 ml-1"></i>`;
                 btn.disabled = false;
                 document.getElementById('player-name').value = '';
-                lucide.createIcons();
-            }, 1000);
-        }
+                
+                // 上傳完畢後切換到排行榜
+                document.getElementById('screen-result').style.display = 'none';
+                openLeaderboard();
+                
+            } catch(e) {
+                console.error(e);
+                alert("上傳失敗：" + e.message);
+                btn.innerHTML = `<span id="res-btn-submit-text">${t.resBtnSubmit}</span> <i data-lucide="send" class="w-3.5 h-3.5 ml-1"></i>`;
+                btn.disabled = false;
+            }
+        };
+
+        // --- 排行榜邏輯 ---
+        let lbUnsubscribe = null;
+        
+        window.openLeaderboard = function() {
+            document.getElementById('screen-intro').style.display = 'none';
+            const lbScreen = document.getElementById('screen-leaderboard');
+            lbScreen.classList.remove('hidden');
+            lbScreen.classList.add('flex', 'fade-in');
+            
+            if(!fbUser) return;
+
+            const q = collection(db, 'artifacts', appId, 'public', 'data', 'leaderboard');
+            lbUnsubscribe = onSnapshot(q, (snapshot) => {
+                const list = document.getElementById('leaderboard-list');
+                const t = i18n[currentLang];
+                
+                if (snapshot.empty) {
+                    list.innerHTML = `<div class="flex items-center justify-center h-32 text-slate-500 text-sm font-bold">${t.lbEmpty}</div>`;
+                    return;
+                }
+                
+                let records = [];
+                snapshot.forEach(doc => { records.push(doc.data()); });
+                
+                // JavaScript 記憶體排序 (根據 Canvas Rule)
+                records.sort((a, b) => {
+                    if (b.score !== a.score) return b.score - a.score;
+                    return b.batteryLeft - a.batteryLeft; // 同分比電量
+                });
+                
+                // 取前 10 名
+                records = records.slice(0, 10);
+                
+                list.innerHTML = '';
+                records.forEach((r, idx) => {
+                    const isTop3 = idx < 3;
+                    const rankColor = idx === 0 ? 'text-yellow-400' : (idx === 1 ? 'text-slate-300' : (idx === 2 ? 'text-amber-600' : 'text-slate-500'));
+                    
+                    list.innerHTML += `
+                        <div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 p-3 rounded-xl flex items-center justify-between animate-fade-in shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 font-black ${rankColor} text-lg text-center">#${idx + 1}</div>
+                                <div class="font-bold text-slate-200 truncate max-w-[120px] sm:max-w-[150px] text-sm">${r.name}</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-mono font-black text-emerald-400 text-lg">${r.score} <span class="text-[10px] text-emerald-600">pts</span></div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }, (error) => {
+                console.error("Leaderboard Sync Error:", error);
+            });
+        };
+
+        window.closeLeaderboard = function() {
+            const lbScreen = document.getElementById('screen-leaderboard');
+            lbScreen.classList.add('hidden');
+            lbScreen.classList.remove('flex', 'fade-in');
+            
+            // 停止監聽節省資源
+            if (lbUnsubscribe) { lbUnsubscribe(); lbUnsubscribe = null; }
+            
+            // 返回首頁
+            document.getElementById('screen-intro').style.display = 'flex';
+            document.getElementById('screen-intro').classList.remove('fade-out');
+            document.getElementById('screen-intro').classList.add('fade-in');
+        };
 
         // 初始化
         updateStaticText();
