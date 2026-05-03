@@ -29,7 +29,7 @@
         
         <!-- 全域 右下角說明按鈕 -->
         <button onclick="openHelp()" class="absolute bottom-10 right-4 z-[90] bg-slate-800/80 backdrop-blur-md text-slate-300 p-2.5 rounded-full border border-slate-600 hover:bg-slate-700 hover:text-white transition-all shadow-lg active:scale-95">
-            <i data-lucide="help-circle" class="w-5 h-5"></i>
+            <i data-lucide="help-circle" class="w-6 h-6"></i>
         </button>
 
         <!-- 說明彈出視窗 (Modal) -->
@@ -52,8 +52,8 @@
 
         <!-- 1. 介紹畫面 (首頁) -->
         <div id="screen-intro" class="absolute inset-0 bottom-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-[#0B1120] to-black z-50 flex flex-col items-center justify-center px-5 text-white transition-all overflow-hidden">
-            <button onclick="toggleLang()" class="absolute top-4 right-4 z-[100] bg-white/10 backdrop-blur-md text-slate-200 px-3 py-1.5 rounded-full text-xs font-bold border border-white/10 hover:bg-white/20 transition-all flex items-center gap-1.5 shadow-lg">
-                <i data-lucide="globe" class="w-3.5 h-3.5"></i> <span id="lang-btn-text">EN</span>
+            <button onclick="toggleLang()" class="absolute top-4 right-4 z-[100] bg-white/10 backdrop-blur-md text-slate-200 px-3 py-1.5 rounded-full text-sm font-bold border border-white/10 hover:bg-white/20 transition-all flex items-center gap-1.5 shadow-lg">
+                <i data-lucide="globe" class="w-4 h-4"></i> <span id="lang-btn-text">EN</span>
             </button>
 
             <div class="relative mb-4 flex flex-col items-center mt-2">
@@ -61,7 +61,7 @@
                     <i data-lucide="triangle-alert" class="w-4 h-4"></i>
                     <span class="font-bold text-sm tracking-widest" id="intro-alert">外部電網異常</span>
                 </div>
-                <div class="w-36 h-36 md:w-44 md:h-44 animate-float relative z-10">
+                <div class="w-40 h-40 md:w-48 md:h-48 animate-float relative z-10">
                     <img src="https://raw.githubusercontent.com/tanji2026/ccus/main/tanjibaby.png" alt="碳吉" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(16,185,129,0.3)]">
                 </div>
                 <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl z-0"></div>
@@ -69,13 +69,13 @@
 
             <div class="space-y-5 text-center w-full max-w-[320px] relative z-10">
                 <h1 class="text-3xl sm:text-4xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-400" id="intro-title">微電網救援行動</h1>
-                <p class="text-slate-300 font-bold text-sm tracking-widest leading-relaxed" id="intro-subtitle">
+                <p class="text-slate-300 font-bold text-base tracking-widest leading-relaxed" id="intro-subtitle">
                     主系統故障！我是工程師碳吉。<br>請協助接管區域能源管理系統。
                 </p>
-                <button onclick="startGame()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-3.5 rounded-full font-black tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.3)] pulse-glow active:scale-95 transition-all flex justify-center items-center gap-2 mt-4">
+                <button onclick="startGame()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-3.5 rounded-full font-black tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.3)] pulse-glow active:scale-95 transition-all flex justify-center items-center gap-2 mt-4 text-lg">
                     <span id="intro-btn-text">啟動 EMS 系統</span> <i data-lucide="power" class="w-5 h-5"></i>
                 </button>
-                <button onclick="openLeaderboard()" class="w-full text-emerald-400 font-bold text-xs tracking-widest hover:text-emerald-300 transition-colors mt-2" id="intro-btn-rank">
+                <button onclick="openLeaderboard()" class="w-full text-emerald-400 font-bold text-sm tracking-widest hover:text-emerald-300 transition-colors mt-2" id="intro-btn-rank">
                     🏆 觀看戰情室排行榜
                 </button>
             </div>
@@ -84,124 +84,126 @@
         <!-- 2. 遊戲主畫面 -->
         <div id="screen-game" class="absolute inset-0 bottom-8 hidden flex-col bg-[#0B1120] z-40">
             <!-- 頂部儀表板 -->
-            <div class="glass-panel border-b-0 py-2 px-3 flex flex-col gap-1.5 shadow-lg z-20 relative rounded-b-2xl">
-                <div class="absolute top-0 left-0 h-1 bg-slate-800 w-full"></div>
-                <div id="time-progress-bar" class="absolute top-0 left-0 h-1 bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 w-0 transition-all duration-1000 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></div>
+                <div class="absolute top-0 left-0 h-2 bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 w-0 transition-all duration-1000 shadow-[0_0_12px_rgba(52,211,153,1)] rounded-r-full z-10"></div>
 
                 <div class="flex justify-between items-center mt-1">
                     <div class="flex flex-col">
-                        <span class="text-[9px] text-slate-400 font-bold tracking-wider uppercase mb-0.5" id="game-time-label">虛擬時間 (24H)</span>
-                        <div class="text-lg font-black text-white font-mono flex items-center gap-1.5 tracking-tight" id="ui-clock-container">
-                            <i data-lucide="sun" id="time-icon" class="w-4 h-4 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]"></i>
-                            <span id="ui-virtual-time">00:00</span>
+                        <span class="text-[10px] sm:text-xs text-slate-400 font-bold tracking-wider uppercase mb-0.5 flex items-center gap-2">
+                            <span id="game-time-label">虛擬時間 (24H)</span>
+                            <span id="ui-event-banner" class="hidden text-[10px] px-1.5 py-0.5 rounded bg-slate-800 border border-slate-600 font-bold whitespace-nowrap text-slate-300"><i data-lucide="zap" class="w-3 h-3 inline text-amber-400 animate-pulse"></i> <span id="ui-event-text">天氣突變！</span></span>
+                        </span>
+                        <div class="flex items-center gap-2 tracking-tight" id="ui-clock-container">
+                            <i data-lucide="sun" id="time-icon" class="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]"></i>
+                            <span class="text-xl sm:text-2xl font-black text-white font-mono" id="ui-virtual-time">00:00</span>
+                            <!-- 新增：真實秒數倒數標籤 -->
+                            <span class="ml-1 px-1.5 py-0.5 bg-slate-800/80 text-emerald-400 text-[10px] sm:text-xs rounded-md border border-slate-600 font-mono flex items-center gap-1">
+                                <i data-lucide="timer" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> <span id="ui-real-time">60s</span>
+                            </span>
                         </div>
                     </div>
                     
                     <div class="flex flex-col items-end">
-                        <span class="text-[9px] text-slate-400 font-bold tracking-wider uppercase mb-0.5" id="game-score-title">當前績效</span>
-                        <div class="text-base font-black text-emerald-400 font-mono flex items-center gap-1">
-                            <span id="ui-total-score">0</span> <span class="text-[9px] text-emerald-600">pts</span>
+                        <span class="text-[10px] sm:text-xs text-slate-400 font-bold tracking-wider uppercase mb-0.5" id="game-score-title">當前績效</span>
+                        <div class="text-lg sm:text-xl font-black text-emerald-400 font-mono flex items-center gap-1">
+                            <span id="ui-total-score">0</span> <span class="text-[10px] sm:text-xs text-emerald-600">pts</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-3 gap-1 bg-black/30 p-1 rounded-lg border border-white/5 relative">
-                    <div id="ui-event-banner" class="absolute -top-2.5 left-1/2 transform -translate-x-1/2 hidden bg-slate-800/90 backdrop-blur text-white border border-slate-600 px-2 py-0.5 rounded-full text-[9px] font-bold flex items-center gap-1 shadow-xl z-20 whitespace-nowrap">
-                        <i data-lucide="zap" class="w-3 h-3 text-amber-400 animate-pulse"></i> <span id="ui-event-text">天氣突變！</span>
-                    </div>
-
+                <div class="grid grid-cols-3 gap-1.5 bg-black/40 p-1.5 rounded-lg border border-white/5 relative mt-0.5">
                     <div class="text-center">
-                        <div class="text-[8px] text-slate-500 font-bold" id="game-solar-label">太陽能</div>
-                        <div class="text-[11px] font-black text-yellow-400 font-mono" id="ui-solar">0</div>
+                        <div class="text-[10px] text-slate-400 font-bold tracking-wide" id="game-solar-label">太陽能</div>
+                        <div class="text-sm font-black text-yellow-400 font-mono mt-0.5" id="ui-solar">0</div>
                     </div>
                     <div class="text-center border-l border-r border-white/5">
-                        <div class="text-[8px] text-slate-500 font-bold" id="game-wind-label">風力</div>
-                        <div class="text-[11px] font-black text-cyan-400 font-mono" id="ui-wind">100</div>
+                        <div class="text-[10px] text-slate-400 font-bold tracking-wide" id="game-wind-label">風力</div>
+                        <div class="text-sm font-black text-cyan-400 font-mono mt-0.5" id="ui-wind">100</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-[8px] text-slate-500 font-bold" id="game-load-label">總負載</div>
-                        <div class="text-[11px] font-black text-rose-400 font-mono" id="ui-draw">400</div>
+                        <div class="text-[10px] text-slate-400 font-bold tracking-wide" id="game-load-label">總負載</div>
+                        <div class="text-sm font-black text-rose-400 font-mono mt-0.5" id="ui-draw">400</div>
                     </div>
                 </div>
             </div>
 
-            <!-- 電池狀態區 -->
-            <div class="px-4 py-1.5 flex flex-col gap-1 relative z-10">
-                <div class="flex justify-between items-end">
-                    <span class="text-[9px] font-bold text-slate-400 tracking-wider" id="game-net-label">ESS 淨流向</span>
-                    <span id="ui-net-power" class="font-mono text-xs tracking-tight font-black text-rose-400">-150 kW</span>
+            <!-- 電池狀態區 (字體放大、血條加粗) -->
+            <div class="px-4 py-2.5 flex flex-col gap-1.5 relative z-10">
+                <div class="flex justify-between items-end mb-0.5">
+                    <span class="text-xs font-bold text-slate-400 tracking-wider uppercase" id="game-net-label">ESS 淨流向</span>
+                    <span id="ui-net-power" class="font-mono text-sm sm:text-base tracking-tight font-black text-rose-400">-150 kW</span>
                 </div>
-                <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700 relative shadow-inner">
+                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700 relative shadow-inner">
                     <div id="ui-battery-bar" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300"></div>
                 </div>
-                <div class="text-right text-[8px] text-slate-500 font-mono font-bold">
-                    <span id="ui-battery-text" class="text-slate-300">3000 / 6000</span> kWh
+                <div class="text-right text-[10px] sm:text-xs text-slate-500 font-mono font-bold mt-0.5">
+                    <span id="ui-battery-text" class="text-slate-200">3000 / 6000</span> kWh
                 </div>
             </div>
 
-            <!-- 設施控制區 (超緊湊高密度) -->
-            <div class="flex-1 overflow-y-auto px-2 pb-2 flex flex-col gap-1 no-scrollbar z-0 relative">
+            <!-- 設施控制區 (重新配比，提升字體但不影響雙欄網格) -->
+            <div class="flex-1 overflow-y-auto px-3 pb-3 flex flex-col gap-2 no-scrollbar z-0 relative">
                 
-                <!-- 備用發電機卡片 -->
-                <div class="bg-gradient-to-r from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-lg border border-amber-500/30 p-1.5 shadow-sm relative overflow-hidden flex-shrink-0 cursor-pointer active:scale-[0.98] transition-transform" onclick="toggleGenerator()">
+                <!-- 備用發電機卡片 (放大按鈕與文字) -->
+                <div class="bg-gradient-to-r from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-xl border border-amber-500/30 p-2 shadow-sm relative overflow-hidden flex-shrink-0 cursor-pointer active:scale-[0.98] transition-transform" onclick="toggleGenerator()">
                     <div id="gen-bg-fx" class="absolute inset-0 bg-amber-500/10 hidden animate-pulse"></div>
                     <div class="flex justify-between items-center relative z-10 px-1">
-                        <div class="flex items-center gap-2.5">
-                            <div id="gen-icon-bg" class="bg-slate-800/80 border border-slate-700 w-7 h-7 rounded-md flex items-center justify-center shadow-inner flex-shrink-0 transition-colors">
-                                <i data-lucide="flame" id="gen-icon" class="w-3.5 h-3.5 text-slate-500 transition-colors"></i>
+                        <div class="flex items-center gap-3">
+                            <div id="gen-icon-bg" class="bg-slate-800/80 border border-slate-700 w-9 h-9 rounded-lg flex items-center justify-center shadow-inner flex-shrink-0 transition-colors">
+                                <i data-lucide="flame" id="gen-icon" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-500 transition-colors"></i>
                             </div>
                             <div>
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-bold text-[11px] text-amber-500" id="game-gen-name">備用發電機</h3>
+                                <div class="flex items-center gap-2 mb-0.5">
+                                    <h3 class="font-bold text-xs sm:text-sm text-amber-500" id="game-gen-name">備用發電機</h3>
                                 </div>
-                                <div class="text-[9px] font-mono font-bold flex gap-1.5">
+                                <div class="text-[10px] sm:text-xs font-mono font-bold flex gap-2">
                                     <span class="text-emerald-400">+200 kW</span>
                                     <span class="text-red-400" id="game-gen-cost">-10 碳排/秒</span>
                                 </div>
                             </div>
                         </div>
-                        <div id="gen-toggle-bg" class="w-8 h-4.5 rounded-full bg-slate-700 relative transition-colors shadow-inner flex items-center p-0.5 border border-slate-600">
-                            <div id="gen-toggle-dot" class="w-3.5 h-3.5 rounded-full bg-slate-300 shadow-sm transform transition-transform duration-300 translate-x-0"></div>
+                        <!-- 放大 Toggle -->
+                        <div id="gen-toggle-bg" class="w-10 h-6 rounded-full bg-slate-700 relative transition-colors shadow-inner flex items-center p-1 border border-slate-600 flex-shrink-0">
+                            <div id="gen-toggle-dot" class="w-4 h-4 rounded-full bg-slate-300 shadow-sm transform transition-transform duration-300 translate-x-0"></div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 10個設施高密度雙欄網格 -->
-                <div id="facilities-container" class="grid grid-cols-2 gap-1.5"></div>
+                <!-- 10個設施高密度雙欄網格 (放大字體與按鈕) -->
+                <div id="facilities-container" class="grid grid-cols-2 gap-2"></div>
             </div>
         </div>
 
         <!-- 3. 結算畫面 -->
-        <div id="screen-result" class="absolute inset-0 bottom-8 glass-panel z-[60] hidden flex-col items-center justify-center p-6 text-white no-scrollbar overflow-hidden">
+        <div id="screen-result" class="absolute inset-0 bottom-8 glass-panel z-[60] hidden flex-col items-center justify-center p-6 text-white no-scrollbar overflow-y-auto">
             <div class="flex flex-col items-center w-full max-w-[320px]">
-                <div id="result-icon" class="w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(0,0,0,0.5)]"></div>
-                <h2 id="result-title" class="text-2xl sm:text-3xl font-black mb-1 text-center tracking-wide"></h2>
-                <p id="result-desc" class="text-slate-300 text-center mb-4 text-xs sm:text-sm px-2 leading-relaxed"></p>
+                <div id="result-icon" class="w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(0,0,0,0.5)]"></div>
+                <h2 id="result-title" class="text-3xl sm:text-4xl font-black mb-2 text-center tracking-wide"></h2>
+                <p id="result-desc" class="text-slate-300 text-center mb-5 text-sm sm:text-base px-2 leading-relaxed"></p>
 
-                <div id="score-section" class="w-full hidden bg-[#0F172A] p-4 rounded-2xl border border-slate-700/50 shadow-2xl mb-4">
+                <div id="score-section" class="w-full hidden bg-[#0F172A] p-5 rounded-2xl border border-slate-700/50 shadow-2xl mb-4">
                     <div class="text-center mb-4 pb-4 border-b border-slate-800">
-                        <div class="text-[10px] text-slate-500 font-bold mb-1 tracking-widest uppercase" id="res-score-label">綜合績效分數</div>
-                        <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 font-mono" id="result-score">0</div>
+                        <div class="text-xs text-slate-500 font-bold mb-1 tracking-widest uppercase" id="res-score-label">綜合績效分數</div>
+                        <div class="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 font-mono" id="result-score">0</div>
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-y-2 gap-x-2 mb-4 text-[11px] font-mono font-bold">
+                    <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-5 text-xs sm:text-sm font-mono font-bold">
                         <div class="text-slate-500" id="res-stat-sat">經濟產值得分</div><div class="text-right text-blue-400" id="res-val-sat">+0</div>
                         <div class="text-slate-500" id="res-stat-car">碳排懲罰</div><div class="text-right text-red-400" id="res-val-car">-0</div>
                         <div class="text-slate-500" id="res-stat-bat">剩餘電量獎勵</div><div class="text-right text-emerald-400" id="res-val-bat">+0</div>
                     </div>
 
-                    <div class="space-y-3">
+                    <div class="space-y-4">
                         <div>
-                            <label class="text-[9px] font-bold text-slate-500 ml-2 tracking-widest uppercase" id="res-name-label">指揮官代號</label>
-                            <input type="text" id="player-name" class="w-full bg-black/50 border border-slate-700 rounded-xl px-3 py-2.5 mt-1 text-white font-bold focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-center text-sm" maxlength="10">
+                            <label class="text-[10px] font-bold text-slate-500 ml-2 tracking-widest uppercase" id="res-name-label">指揮官代號</label>
+                            <input type="text" id="player-name" class="w-full bg-black/50 border border-slate-700 rounded-xl px-4 py-3.5 mt-1 text-white font-bold focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-center text-base" maxlength="10">
                         </div>
-                        <button onclick="submitToFirebase()" id="btn-submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-xl font-bold tracking-widest shadow-lg active:scale-95 transition-all flex justify-center items-center gap-2 text-sm">
-                            <span id="res-btn-submit-text">發布至戰情室</span> <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                        <button onclick="submitToFirebase()" id="btn-submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-4 rounded-xl font-bold tracking-widest shadow-lg active:scale-95 transition-all flex justify-center items-center gap-2 text-base">
+                            <span id="res-btn-submit-text">發布至戰情室</span> <i data-lucide="send" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>
 
-                <button id="btn-restart" onclick="resetGame()" class="text-slate-500 hover:text-white font-bold tracking-widest text-xs transition-colors hidden mt-2">
+                <button id="btn-restart" onclick="resetGame()" class="text-slate-400 hover:text-white font-bold tracking-widest text-sm transition-colors hidden mt-2">
                     <span id="res-btn-restart">重新挑戰</span>
                 </button>
             </div>
@@ -217,27 +219,26 @@
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
-            <div class="flex-1 overflow-y-auto p-4 space-y-2 no-scrollbar" id="leaderboard-list">
-                <div class="flex items-center justify-center h-32 text-slate-500 text-sm font-bold animate-pulse">
-                    <i data-lucide="loader-2" class="w-5 h-5 mr-2 animate-spin"></i> 載入資料中...
+            <div class="flex-1 overflow-y-auto p-4 space-y-3 no-scrollbar" id="leaderboard-list">
+                <div class="flex items-center justify-center h-32 text-slate-500 text-base font-bold animate-pulse">
+                    <i data-lucide="loader-2" class="w-6 h-6 mr-2 animate-spin"></i> 載入資料中...
                 </div>
             </div>
         </div>
 
         <!-- 底部版權 -->
         <div class="absolute bottom-0 w-full h-8 flex items-center justify-center bg-slate-950 border-t border-slate-900 z-[100] px-2">
-            <p class="text-[8px] sm:text-[9px] text-slate-600 font-medium text-center truncate w-full tracking-wider" id="global-footer">
-                能源經濟學 - 智慧電網｜作品受著作權法保護，未經授權請勿複製轉載｜歡迎聯絡我們：tanji2026@gmail.com
+            <p class="text-[8px] sm:text-[10px] text-slate-600 font-medium text-center truncate w-full tracking-wider" id="global-footer">
+                能源經濟學 - 智慧電網｜作品受著作權法保護，未經授權請勿複製轉載
             </p>
         </div>
 
     </div>
 
-    <!-- Firebase SDK (Canvas 環境必須嚴格遵守模組化引入) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
         // --- i18n ---
         const i18n = {
@@ -249,7 +250,7 @@
                 introBtn: "啟動 EMS 系統",
                 introRank: "🏆 觀看戰情室排行榜",
                 helpTitle: "遊戲說明",
-                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>接下來 60 秒代表現實 <span class='text-emerald-400 font-black'>24 小時</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>白天：</strong>太陽能充電、維持經濟產值</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>夜晚：</strong>關設施省電，<strong class='text-rose-400'>但會造成經濟損失！</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>發電機：</strong>緊急供電，但有嚴重碳排懲罰</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs tracking-wide text-center mb-1.5'>❌ 失敗：電池耗盡 或 醫院斷電</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 高分秘笈：</p><ul class='text-[10px] text-slate-300 list-disc pl-4 space-y-1 font-bold mt-1.5'><li>盡量保持設施開啟（賺取經濟產值）。</li><li>不到生死關頭，<strong class='text-amber-400'>絕對不要開發電機</strong>（狂扣分）。</li><li>結束時電池剩越多，獎勵越高！</li></ul></div>",
+                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>接下來 60 秒代表現實 <span class='text-emerald-400 font-black'>24 小時</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>白天：</strong>太陽能充電、維持經濟產值</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>夜晚：</strong>關設施省電，<strong class='text-rose-400'>但會產生民怨或損失！</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>發電機：</strong>緊急供電，但有嚴重碳排懲罰</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ 失敗：電池耗盡 或 醫院斷電</p><p class='text-emerald-400 font-black text-sm sm:text-base tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 高分秘笈：</p><ul class='text-[11px] sm:text-xs text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>盡量保持設施開啟（避免產值損失）。</li><li>不到生死關頭，<strong class='text-amber-400'>絕對不要開發電機</strong>（狂扣分）。</li><li>結束時電池剩越多，獎勵越高！</li></ul></div>",
                 helpClose: "了解！",
                 gameTime: "虛擬時間 (24H)",
                 gameSat: "當前績效",
@@ -269,7 +270,7 @@
                 statSat: "經濟產值得分",
                 statCar: "碳排懲罰",
                 statBat: "剩餘電量獎勵",
-                footer: "能源經濟學 - 智慧電網｜作品受著作權法保護，未經授權請勿複製轉載｜歡迎聯絡我們：tanji2026@gmail.com",
+                footer: "能源經濟學 - 智慧電網｜作品受著作權法保護，未經授權請勿複製轉載",
                 failTitle: "任務失敗",
                 successTitle: "救援成功！",
                 failHospital: "碳吉：糟了！你切斷了醫院的電源！<br>病患面臨危險，調度任務失敗...",
@@ -279,6 +280,9 @@
                 lbTitle: "戰情室排行榜",
                 lbLoading: "載入資料中...",
                 lbEmpty: "目前還沒有紀錄，成為第一位挑戰者吧！",
+                lossEconomy: "<span class='text-rose-500 animate-pulse'>⚠️ 經濟損失</span>",
+                lossComplaint: "<span class='text-amber-500 animate-pulse'>⚠️ 民怨飆升</span>",
+                lossSociety: "<span class='text-fuchsia-400 animate-pulse'>⚠️ 社會停擺</span>",
                 events: { cloudy: "烏雲密布！太陽能驟降", windy: "強風襲來！風力激增", sunny: "雲霧散去！太陽能滿載", nowind: "無風之日！風力停擺", stable: "氣候穩定" }
             },
             en: {
@@ -289,7 +293,7 @@
                 introBtn: "Start EMS",
                 introRank: "🏆 View Leaderboard",
                 helpTitle: "How to Play",
-                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>Next 60s is <span class='text-emerald-400 font-black'>24 Hours</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>Day:</strong> Solar charge & keep economy running</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>Night:</strong> Turn off to save power, <strong class='text-rose-400'>lose economy!</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>Generator:</strong> Power with Carbon penalty</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs tracking-wide text-center mb-1.5'>❌ Fail: Battery dies OR Hospital loses power</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 How to Win Big:</p><ul class='text-[10px] text-slate-300 list-disc pl-4 space-y-1 font-bold mt-1.5'><li>Keep facilities ON as much as possible.</li><li>Avoid Generator <strong class='text-amber-400'>at all costs</strong>.</li><li>End with high battery for bonuses!</li></ul></div>",
+                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>Next 60s is <span class='text-emerald-400 font-black'>24 Hours</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>Day:</strong> Solar charge & keep economy running</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>Night:</strong> Turn off to save power, <strong class='text-rose-400'>expect complaints/loss!</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>Generator:</strong> Power with Carbon penalty</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ Fail: Battery dies OR Hospital loses power</p><p class='text-emerald-400 font-black text-sm sm:text-base tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 How to Win Big:</p><ul class='text-[11px] sm:text-xs text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>Keep facilities ON as much as possible.</li><li>Avoid Generator <strong class='text-amber-400'>at all costs</strong>.</li><li>End with high battery for bonuses!</li></ul></div>",
                 helpClose: "Got it!",
                 gameTime: "Virtual Time (24H)",
                 gameSat: "Performance",
@@ -309,7 +313,7 @@
                 statSat: "Economic Score",
                 statCar: "Carbon Penalty",
                 statBat: "Battery Bonus",
-                footer: "Energy Economics - Smart Grids | Copyright Protected | Contact: tanji2026@gmail.com",
+                footer: "Energy Economics - Smart Grids | Copyright Protected",
                 failTitle: "Mission Failed",
                 successTitle: "Rescue Successful!",
                 failHospital: "TanJi: Oh no! You cut power to the hospital!<br>Patients are in danger, mission failed...",
@@ -319,22 +323,24 @@
                 lbTitle: "Leaderboard",
                 lbLoading: "Loading data...",
                 lbEmpty: "No records yet, be the first challenger!",
+                lossEconomy: "<span class='text-rose-500 animate-pulse'>⚠️ Econ Loss</span>",
+                lossComplaint: "<span class='text-amber-500 animate-pulse'>⚠️ Complaints</span>",
+                lossSociety: "<span class='text-fuchsia-400 animate-pulse'>⚠️ Society Halt</span>",
                 events: { cloudy: "Clouds! Solar Drops", windy: "Strong Winds! Wind Surge", sunny: "Clear Sky! Solar Max", nowind: "No Wind! Wind Stops", stable: "Weather Stable" }
             }
         };
 
-        // 10 大設施 (超高密度)，調整了耗電量總和以維持遊戲難度
         const FACILITY_CONFIG = [
-            { id: 'hospital', name: { zh: '地區醫院', en: 'Hospital' }, icon: 'cross', draw: 60, critical: true, color: 'rose' },
-            { id: 'gov', name: { zh: '政府機關', en: 'Gov Agency' }, icon: 'landmark', draw: 30, critical: false, color: 'violet' },
-            { id: 'finance', name: { zh: '金融機構', en: 'Bank' }, icon: 'briefcase', draw: 30, critical: false, color: 'emerald' },
-            { id: 'transit', name: { zh: '大眾運輸', en: 'Transit' }, icon: 'train', draw: 40, critical: false, color: 'sky' },
-            { id: 'water', name: { zh: '自來水廠', en: 'Water Plant' }, icon: 'droplets', draw: 40, critical: false, color: 'cyan' },
-            { id: 'telecom', name: { zh: '通訊基地', en: 'Telecom' }, icon: 'radio-tower', draw: 30, critical: false, color: 'fuchsia' },
-            { id: 'office', name: { zh: '商辦大樓', en: 'Office Bldg' }, icon: 'building', draw: 50, critical: false, color: 'teal' },
-            { id: 'factory', name: { zh: '重型工業區', en: 'Factory' }, icon: 'factory', draw: 100, critical: false, color: 'amber' },
-            { id: 'mall', name: { zh: '大型商場', en: 'Shopping Mall' }, icon: 'shopping-cart', draw: 70, critical: false, color: 'blue' },
-            { id: 'residential', name: { zh: '住宅社區', en: 'Residential' }, icon: 'home', draw: 50, critical: false, color: 'indigo' }
+            { id: 'hospital', name: { zh: '地區醫院', en: 'Hospital' }, icon: 'cross', draw: 60, critical: true, color: 'rose', lossType: '' },
+            { id: 'gov', name: { zh: '政府機關', en: 'Gov Agency' }, icon: 'landmark', draw: 30, critical: false, color: 'violet', lossType: 'lossSociety' },
+            { id: 'finance', name: { zh: '金融機構', en: 'Bank' }, icon: 'briefcase', draw: 30, critical: false, color: 'emerald', lossType: 'lossEconomy' },
+            { id: 'transit', name: { zh: '大眾運輸', en: 'Transit' }, icon: 'train', draw: 40, critical: false, color: 'sky', lossType: 'lossComplaint' },
+            { id: 'water', name: { zh: '自來水廠', en: 'Water Plant' }, icon: 'droplets', draw: 40, critical: false, color: 'cyan', lossType: 'lossSociety' },
+            { id: 'telecom', name: { zh: '通訊基地', en: 'Telecom' }, icon: 'radio-tower', draw: 30, critical: false, color: 'fuchsia', lossType: 'lossSociety' },
+            { id: 'office', name: { zh: '商辦大樓', en: 'Office Bldg' }, icon: 'building', draw: 50, critical: false, color: 'teal', lossType: 'lossEconomy' },
+            { id: 'factory', name: { zh: '重型工業區', en: 'Factory' }, icon: 'factory', draw: 100, critical: false, color: 'amber', lossType: 'lossEconomy' },
+            { id: 'mall', name: { zh: '大型商場', en: 'Shopping Mall' }, icon: 'shopping-cart', draw: 70, critical: false, color: 'blue', lossType: 'lossEconomy' },
+            { id: 'residential', name: { zh: '住宅社區', en: 'Residential' }, icon: 'home', draw: 50, critical: false, color: 'indigo', lossType: 'lossComplaint' }
         ];
 
         let currentLang = 'zh';
@@ -403,24 +409,27 @@
             lucide.createIcons();
         }
 
-        // --- Firebase 初始化 ---
-        const fallbackConfig = { apiKey: "AIzaSyDMBE9BjTJb70xm8c5WOZaIITxI0PmYWNc", authDomain: "tanji-ccus.firebaseapp.com", projectId: "tanji-ccus" };
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : fallbackConfig;
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'microgrid-v1';
+        const firebaseConfig = {
+            apiKey: "AIzaSyBWcBJ3gxzBm58g63n2N8mvjilvs7lBpEo",
+            authDomain: "smartgrid-9d95d.firebaseapp.com",
+            projectId: "smartgrid-9d95d",
+            storageBucket: "smartgrid-9d95d.firebasestorage.app",
+            messagingSenderId: "767548979863",
+            appId: "1:767548979863:web:b6ed9d33c61ed8ac7347d2"
+        };
         
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
         let fbUser = null;
 
+        // 匿名登入機制
         const initAuth = async () => {
             try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (e) { console.error("Firebase Auth Error:", e); }
+                await signInAnonymously(auth);
+            } catch (e) { 
+                console.error("Firebase Auth Error:", e); 
+            }
         };
         initAuth();
         onAuthStateChanged(auth, user => { fbUser = user; });
@@ -472,14 +481,14 @@
                 iconBg.classList.replace('bg-slate-800/80', 'bg-amber-500');
                 icon.classList.replace('text-slate-500', 'text-white');
                 toggleBg.classList.replace('bg-slate-700', 'bg-amber-500');
-                toggleDot.classList.replace('translate-x-0', 'translate-x-3.5');
+                toggleDot.classList.replace('translate-x-0', 'translate-x-4');
                 toggleDot.classList.replace('bg-slate-300', 'bg-white');
             } else {
                 bgFx.classList.add('hidden');
                 iconBg.classList.replace('bg-amber-500', 'bg-slate-800/80');
                 icon.classList.replace('text-white', 'text-slate-500');
                 toggleBg.classList.replace('bg-amber-500', 'bg-slate-700');
-                toggleDot.classList.replace('translate-x-3.5', 'translate-x-0');
+                toggleDot.classList.replace('translate-x-4', 'translate-x-0');
                 toggleDot.classList.replace('bg-white', 'bg-slate-300');
             }
         }
@@ -487,31 +496,31 @@
         function renderFacilities() {
             const container = document.getElementById('facilities-container');
             container.innerHTML = '';
+            const t = i18n[currentLang];
             
             state.facilities.forEach((f, index) => {
-                const statusColor = f.isOn ? `bg-${f.color}-500 shadow-[0_0_8px_rgba(var(--tw-colors-${f.color}-500),0.5)]` : `bg-slate-700/50`;
+                const statusColor = f.isOn ? `bg-${f.color}-500 shadow-[0_0_10px_rgba(var(--tw-colors-${f.color}-500),0.5)]` : `bg-slate-700/50`;
                 const cardBorder = f.isOn ? `border-${f.color}-500/30` : `border-slate-700/50`;
                 const textColor = f.isOn ? `text-white` : `text-slate-500`;
                 const iconColor = f.isOn ? `text-white` : `text-slate-500`;
                 const cardBg = f.isOn ? `bg-slate-800/90` : `bg-slate-900/60`;
 
-                // 超高密度卡片排版
                 const html = `
-                    <div class="${cardBg} backdrop-blur-md rounded-lg border ${cardBorder} p-1.5 transition-all duration-300 relative overflow-hidden flex-shrink-0 cursor-pointer hover:border-slate-500 active:scale-[0.98]" onclick="toggleFacility(${index})">
+                    <div class="${cardBg} backdrop-blur-md rounded-xl border ${cardBorder} p-2 transition-all duration-300 relative overflow-hidden flex-shrink-0 cursor-pointer hover:border-slate-500 active:scale-[0.98]" onclick="toggleFacility(${index})">
                         <div class="flex flex-col relative z-10">
                             <div class="flex justify-between items-center mb-1">
-                                <div class="flex items-center gap-1.5">
-                                    <div class="${statusColor} w-6 h-6 rounded-md flex items-center justify-center transition-all duration-300 flex-shrink-0">
-                                        <i data-lucide="${f.icon}" class="w-3.5 h-3.5 ${iconColor}"></i>
+                                <div class="flex items-center gap-2">
+                                    <div class="${statusColor} w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-300 flex-shrink-0 border ${f.isOn ? 'border-white/20' : 'border-slate-600'}">
+                                        <i data-lucide="${f.icon}" class="w-4 h-4 ${iconColor}"></i>
                                     </div>
-                                    <h3 class="font-bold text-[10px] ${textColor} transition-colors tracking-wide truncate max-w-[65px]">${f.name[currentLang]}</h3>
+                                    <h3 class="font-bold text-xs ${textColor} transition-colors tracking-wide truncate max-w-[70px] sm:max-w-[85px]">${f.name[currentLang]}</h3>
                                 </div>
-                                <div class="w-7 h-4 rounded-full ${f.isOn ? 'bg-emerald-500' : 'bg-slate-700'} relative transition-colors shadow-inner flex items-center p-0.5 flex-shrink-0">
-                                    <div class="w-3 h-3 rounded-full ${f.isOn ? 'bg-white' : 'bg-slate-300'} shadow-sm transform transition-transform duration-300 ${f.isOn ? 'translate-x-3' : 'translate-x-0'}"></div>
+                                <div class="w-9 h-5 rounded-full ${f.isOn ? 'bg-emerald-500' : 'bg-slate-700'} relative transition-colors shadow-inner flex items-center p-0.5 flex-shrink-0 border border-slate-600">
+                                    <div class="w-4 h-4 rounded-full ${f.isOn ? 'bg-white' : 'bg-slate-300'} shadow-sm transform transition-transform duration-300 ${f.isOn ? 'translate-x-4' : 'translate-x-0'}"></div>
                                 </div>
                             </div>
-                            <div class="text-[9px] font-mono ${f.isOn ? 'text-rose-400' : 'text-slate-500'} font-bold">
-                                ${f.isOn ? '-' + f.draw + ' kW' : (!f.critical ? '<span class="text-rose-500 animate-pulse">⚠️ 經濟損失</span>' : '0 kW')}
+                            <div class="text-[11px] font-mono ${f.isOn ? 'text-rose-400' : 'text-slate-500'} font-bold">
+                                ${f.isOn ? '-' + f.draw + ' kW' : (!f.critical ? t[f.lossType] : '0 kW')}
                             </div>
                         </div>
                         ${!f.isOn ? '<div class="absolute inset-0 bg-slate-900/40 z-0"></div>' : ''}
@@ -544,7 +553,8 @@
             } else {
                 banner.classList.remove('hidden');
                 evtText.innerText = t[evt.id];
-                evtText.className = `${evt.color}`;
+                banner.className = `hidden text-[10px] px-1.5 py-0.5 rounded bg-slate-800 border border-slate-600 font-bold whitespace-nowrap ${evt.color}`;
+                banner.classList.remove('hidden');
             }
         }
 
@@ -564,22 +574,25 @@
             let elapsed = 60 - state.time;
             let virtualHour = Math.floor((elapsed / 60) * 24);
             let virtualMin = Math.floor((((elapsed / 60) * 24) % 1) * 60);
+            
             document.getElementById('ui-virtual-time').innerText = 
                 String(virtualHour).padStart(2, '0') + ':' + String(virtualMin).padStart(2, '0');
+            // 同步顯示真實倒數秒數
+            document.getElementById('ui-real-time').innerText = state.time + 's';
             
             document.getElementById('time-progress-bar').style.width = `${(elapsed/60)*100}%`;
 
             let sunFactor = Math.sin(Math.PI * (elapsed / 60));
             if (sunFactor < 0) sunFactor = 0;
-            state.solarCurrent = Math.floor(sunFactor * 450 * state.solarMod); // 因總負載增加，太陽能極值調升
+            state.solarCurrent = Math.floor(sunFactor * 450 * state.solarMod);
             
             const timeIcon = document.getElementById('time-icon');
             if (virtualHour >= 6 && virtualHour < 18) {
                 timeIcon.setAttribute('data-lucide', 'sun');
-                timeIcon.className = "w-4 h-4 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]";
+                timeIcon.className = "w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]";
             } else {
                 timeIcon.setAttribute('data-lucide', 'moon');
-                timeIcon.className = "w-4 h-4 text-blue-300 drop-shadow-[0_0_5px_rgba(147,197,253,0.8)]";
+                timeIcon.className = "w-5 h-5 sm:w-6 sm:h-6 text-blue-300 drop-shadow-[0_0_5px_rgba(147,197,253,0.8)]";
             }
             lucide.createIcons();
 
@@ -592,7 +605,6 @@
             if (state.genOn) supply += 200;
 
             let netPower = Math.floor(supply - totalDraw);
-            const t = i18n[currentLang];
             
             document.getElementById('ui-draw').innerText = totalDraw;
             document.getElementById('ui-solar').innerText = state.solarCurrent;
@@ -600,11 +612,11 @@
             
             const netEl = document.getElementById('ui-net-power');
             if (netPower >= 0) {
-                netEl.innerText = '+' + netPower + ' kW (' + t.statusCharge + ')';
-                netEl.className = 'font-mono text-xs tracking-tight font-black text-emerald-400';
+                netEl.innerText = '+' + netPower + ' kW';
+                netEl.className = 'font-mono text-sm sm:text-base tracking-tight font-black text-emerald-400';
             } else {
-                netEl.innerText = netPower + ' kW (' + t.statusDischarge + ')';
-                netEl.className = 'font-mono text-xs tracking-tight font-black text-rose-400';
+                netEl.innerText = netPower + ' kW';
+                netEl.className = 'font-mono text-sm sm:text-base tracking-tight font-black text-rose-400';
             }
 
             let totalScore = Math.floor(state.satisfaction) - state.carbon;
@@ -617,11 +629,11 @@
             bar.style.width = `${pct}%`;
             
             if (pct > 50) {
-                bar.className = 'h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300 shadow-[0_0_10px_rgba(52,211,153,0.5)]';
+                bar.className = 'h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300 shadow-[0_0_12px_rgba(52,211,153,0.8)] rounded-r-full';
             } else if (pct > 20) {
-                bar.className = 'h-full bg-gradient-to-r from-amber-400 to-yellow-500 w-full transition-all duration-300 shadow-[0_0_10px_rgba(250,204,21,0.5)]';
+                bar.className = 'h-full bg-gradient-to-r from-amber-400 to-yellow-500 w-full transition-all duration-300 shadow-[0_0_12px_rgba(250,204,21,0.8)] rounded-r-full';
             } else {
-                bar.className = 'h-full bg-gradient-to-r from-rose-500 to-red-600 w-full transition-all duration-300 shadow-[0_0_10px_rgba(244,63,94,0.5)] animate-pulse';
+                bar.className = 'h-full bg-gradient-to-r from-rose-500 to-red-600 w-full transition-all duration-300 shadow-[0_0_12px_rgba(244,63,94,0.8)] animate-pulse rounded-r-full';
             }
         }
 
@@ -740,9 +752,9 @@
             scoreSec.classList.add('hidden');
             btnRestart.classList.remove('hidden');
             
-            icon.className = 'w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(244,63,94,0.4)] bg-rose-500/20 text-rose-500 border border-rose-500/50';
-            icon.innerHTML = '<i data-lucide="triangle-alert" class="w-8 h-8"></i>';
-            title.className = 'text-2xl sm:text-3xl font-black mb-2 text-center text-rose-500 tracking-wide';
+            icon.className = 'w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(244,63,94,0.4)] bg-rose-500/20 text-rose-500 border border-rose-500/50';
+            icon.innerHTML = '<i data-lucide="triangle-alert" class="w-10 h-10"></i>';
+            title.className = 'text-3xl sm:text-4xl font-black mb-2 text-center text-rose-500 tracking-wide';
             
             updateResultText();
             lucide.createIcons();
@@ -764,9 +776,9 @@
             scoreSec.classList.remove('hidden');
             btnRestart.classList.add('hidden');
             
-            icon.className = 'w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(52,211,153,0.4)] bg-emerald-500/20 text-emerald-400 border border-emerald-500/50';
-            icon.innerHTML = '<i data-lucide="shield-check" class="w-8 h-8"></i>';
-            title.className = 'text-2xl sm:text-3xl font-black mb-2 text-center text-emerald-400 tracking-wide';
+            icon.className = 'w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(52,211,153,0.4)] bg-emerald-500/20 text-emerald-400 border border-emerald-500/50';
+            icon.innerHTML = '<i data-lucide="shield-check" class="w-10 h-10"></i>';
+            title.className = 'text-3xl sm:text-4xl font-black mb-2 text-center text-emerald-400 tracking-wide';
             
             let satScore = Math.floor(state.satisfaction);
             let carScore = state.carbon;
@@ -798,33 +810,31 @@
             const btn = document.getElementById('btn-submit');
             
             if (!name) { alert(t.alertName); return; }
-            if (!fbUser) { alert("尚未連接到戰情室伺服器，請稍後再試！"); return; }
             
-            btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>';
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>';
             btn.disabled = true;
             lucide.createIcons();
             
             try {
-                // 將成績寫入 Firestore
-                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'leaderboard'), {
+                // 將成績寫入自己專案的 Firestore
+                await addDoc(collection(db, 'leaderboard'), {
                     name: name,
                     score: state.finalScore,
                     batteryLeft: Math.floor(state.battery),
                     timestamp: serverTimestamp()
                 });
                 
-                btn.innerHTML = `<span id="res-btn-submit-text">${t.resBtnSubmit}</span> <i data-lucide="send" class="w-3.5 h-3.5 ml-1"></i>`;
+                btn.innerHTML = `<span id="res-btn-submit-text">${t.resBtnSubmit}</span> <i data-lucide="send" class="w-4 h-4 ml-1"></i>`;
                 btn.disabled = false;
                 document.getElementById('player-name').value = '';
                 
-                // 上傳完畢後切換到排行榜
                 document.getElementById('screen-result').style.display = 'none';
                 openLeaderboard();
                 
             } catch(e) {
-                console.error(e);
-                alert("上傳失敗：" + e.message);
-                btn.innerHTML = `<span id="res-btn-submit-text">${t.resBtnSubmit}</span> <i data-lucide="send" class="w-3.5 h-3.5 ml-1"></i>`;
+                console.error("Upload Error:", e);
+                alert("上傳失敗，請確認 Firebase 設定檔是否正確：" + e.message);
+                btn.innerHTML = `<span id="res-btn-submit-text">${t.resBtnSubmit}</span> <i data-lucide="send" class="w-4 h-4 ml-1"></i>`;
                 btn.disabled = false;
             }
         };
@@ -838,28 +848,24 @@
             lbScreen.classList.remove('hidden');
             lbScreen.classList.add('flex', 'fade-in');
             
-            if(!fbUser) return;
-
-            const q = collection(db, 'artifacts', appId, 'public', 'data', 'leaderboard');
+            const q = collection(db, 'leaderboard');
             lbUnsubscribe = onSnapshot(q, (snapshot) => {
                 const list = document.getElementById('leaderboard-list');
                 const t = i18n[currentLang];
                 
                 if (snapshot.empty) {
-                    list.innerHTML = `<div class="flex items-center justify-center h-32 text-slate-500 text-sm font-bold">${t.lbEmpty}</div>`;
+                    list.innerHTML = `<div class="flex items-center justify-center h-32 text-slate-500 text-lg font-bold">${t.lbEmpty}</div>`;
                     return;
                 }
                 
                 let records = [];
                 snapshot.forEach(doc => { records.push(doc.data()); });
                 
-                // JavaScript 記憶體排序 (根據 Canvas Rule)
                 records.sort((a, b) => {
                     if (b.score !== a.score) return b.score - a.score;
-                    return b.batteryLeft - a.batteryLeft; // 同分比電量
+                    return b.batteryLeft - a.batteryLeft;
                 });
                 
-                // 取前 10 名
                 records = records.slice(0, 10);
                 
                 list.innerHTML = '';
@@ -868,19 +874,20 @@
                     const rankColor = idx === 0 ? 'text-yellow-400' : (idx === 1 ? 'text-slate-300' : (idx === 2 ? 'text-amber-600' : 'text-slate-500'));
                     
                     list.innerHTML += `
-                        <div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 p-3 rounded-xl flex items-center justify-between animate-fade-in shadow-sm">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 font-black ${rankColor} text-lg text-center">#${idx + 1}</div>
-                                <div class="font-bold text-slate-200 truncate max-w-[120px] sm:max-w-[150px] text-sm">${r.name}</div>
+                        <div class="bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 p-4 rounded-xl flex items-center justify-between animate-fade-in shadow-sm">
+                            <div class="flex items-center gap-4">
+                                <div class="w-8 font-black ${rankColor} text-xl text-center">#${idx + 1}</div>
+                                <div class="font-bold text-slate-200 truncate max-w-[140px] sm:max-w-[180px] text-base">${r.name || 'Anonymous'}</div>
                             </div>
                             <div class="text-right">
-                                <div class="font-mono font-black text-emerald-400 text-lg">${r.score} <span class="text-[10px] text-emerald-600">pts</span></div>
+                                <div class="font-mono font-black text-emerald-400 text-xl">${r.score || 0} <span class="text-[11px] text-emerald-600">pts</span></div>
                             </div>
                         </div>
                     `;
                 });
             }, (error) => {
                 console.error("Leaderboard Sync Error:", error);
+                document.getElementById('leaderboard-list').innerHTML = `<div class="text-red-400 text-center mt-10 text-sm">無法連接資料庫，請檢查 Firebase 設定</div>`;
             });
         };
 
@@ -889,10 +896,8 @@
             lbScreen.classList.add('hidden');
             lbScreen.classList.remove('flex', 'fade-in');
             
-            // 停止監聽節省資源
             if (lbUnsubscribe) { lbUnsubscribe(); lbUnsubscribe = null; }
             
-            // 返回首頁
             document.getElementById('screen-intro').style.display = 'flex';
             document.getElementById('screen-intro').classList.remove('fade-out');
             document.getElementById('screen-intro').classList.add('fade-in');
