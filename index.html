@@ -67,7 +67,7 @@
                 <p class="text-slate-300 font-bold text-base tracking-widest leading-relaxed" id="intro-subtitle">
                     主系統故障！我是工程師碳吉。<br>請協助接管區域能源管理系統。
                 </p>
-                <button onclick="startGame()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-4 rounded-full font-black tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.3)] pulse-glow active:scale-95 transition-all flex justify-center items-center gap-2 mt-4 text-xl">
+                <button onclick="startGame()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-8 py-3.5 rounded-full font-black tracking-widest shadow-[0_0_20px_rgba(16,185,129,0.3)] pulse-glow active:scale-95 transition-all flex justify-center items-center gap-2 mt-4 text-xl">
                     <span id="intro-btn-text">啟動 EMS 系統</span> <i data-lucide="power" class="w-6 h-6"></i>
                 </button>
                 <button onclick="openLeaderboard()" class="w-full text-emerald-400 font-bold text-sm tracking-widest hover:text-emerald-300 transition-colors mt-2" id="intro-btn-rank">
@@ -128,7 +128,7 @@
                     <div id="ui-battery-bar" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300"></div>
                 </div>
                 <div class="text-right text-[10px] sm:text-xs text-slate-500 font-mono font-bold mt-0.5">
-                    <span id="ui-battery-text" class="text-slate-200 text-sm">3000 / 6000</span> kWh
+                    <span id="ui-battery-text" class="text-slate-200 text-sm font-black">3000 / 6000</span> kWh
                 </div>
             </div>
 
@@ -164,21 +164,21 @@
                 <p id="result-desc" class="text-slate-300 text-center mb-5 text-sm sm:text-base px-2 leading-relaxed"></p>
                 <div id="score-section" class="w-full hidden bg-[#0F172A] p-5 rounded-3xl border border-slate-700/50 shadow-2xl mb-4">
                     <div class="text-center mb-4 pb-4 border-b border-slate-800">
-                        <div class="text-xs text-slate-500 font-bold mb-1 tracking-widest uppercase" id="res-score-label">綜合績效分數</div>
+                        <div class="text-[10px] text-slate-500 font-bold mb-1 tracking-widest uppercase" id="res-score-label">綜合績效分數</div>
                         <div class="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 font-mono" id="result-score">0</div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-5 text-xs sm:text-sm font-mono font-bold">
+                    <div class="grid grid-cols-2 gap-y-2 gap-x-2 mb-4 text-[11px] font-mono font-bold">
                         <div class="text-slate-500" id="res-stat-sat">經濟產值</div><div class="text-right text-blue-400" id="res-val-sat">+0</div>
                         <div class="text-slate-500" id="res-stat-car">碳排懲罰</div><div class="text-right text-red-400" id="res-val-car">-0</div>
                         <div class="text-slate-500" id="res-stat-bat">剩餘獎勵</div><div class="text-right text-emerald-400" id="res-val-bat">+0</div>
                     </div>
-                    <div class="space-y-4">
+                    <div class="space-y-3">
                         <div>
-                            <label class="text-[10px] font-bold text-slate-500 ml-2 tracking-widest uppercase" id="res-name-label">指揮官代號</label>
-                            <input type="text" id="player-name" class="w-full bg-black/50 border border-slate-700 rounded-2xl px-4 py-3.5 text-white font-bold focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-center text-lg shadow-inner" maxlength="10">
+                            <label class="text-[9px] font-bold text-slate-500 ml-2 tracking-widest uppercase" id="res-name-label">指揮官代號</label>
+                            <input type="text" id="player-name" class="w-full bg-black/50 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-bold focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-center text-base" maxlength="10">
                         </div>
-                        <button onclick="submitToFirebase()" id="btn-submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-4 rounded-2xl font-bold tracking-widest shadow-lg active:scale-95 transition-all flex justify-center items-center gap-2 text-lg">
-                            <span id="res-btn-submit-text">發布至戰情室</span> <i data-lucide="send" class="w-5 h-5"></i>
+                        <button onclick="submitToFirebase()" id="btn-submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-xl font-bold tracking-widest shadow-lg active:scale-95 transition-all flex justify-center items-center gap-2 text-base">
+                            <span id="res-btn-submit-text">發布至戰情室</span> <i data-lucide="send" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>
@@ -225,7 +225,7 @@
                 introBtn: "啟動 EMS 系統",
                 introRank: "🏆 觀看戰情室排行榜",
                 helpTitle: "遊戲說明",
-                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>接下來 60 秒代表現實 <span class='text-emerald-400 font-black'>24 小時</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>白天：</strong>太陽能充電、維持經濟產值</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>夜晚：</strong>關設施省電，<strong class='text-rose-400'>但會產生民怨或損失！</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>發電機：</strong>緊急供電，但有嚴重碳排懲罰</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ 失敗：電池耗盡 或 醫院斷電</p><p class='text-emerald-400 font-black text-sm sm:text-base tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 高分秘笈：</p><ul class='text-[11px] sm:text-xs text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>盡量保持設施開啟（避免產值損失）。</li><li>不到生死關頭，<strong class='text-amber-400'>絕對不要開發電機</strong>（狂扣分）。</li><li>結束時電池剩越多，獎勵越高！</li></ul></div>",
+                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>接下來 60 秒代表現實 <span class='text-emerald-400 font-black'>24 小時</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>白天：</strong>太陽能充電、維持經濟產值</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>夜晚：</strong>關設施省電，<strong class='text-rose-400'>但會產生民怨或損失！</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>發電機：</strong>緊急供電，但有嚴重碳排懲罰</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ 失敗：電池耗盡 或 醫院斷電</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 高分秘笈：</p><ul class='text-[11px] sm:text-xs text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>盡量保持設施開啟（避免產值損失）。</li><li>不到生死關頭，<strong class='text-amber-400'>絕對不要開發電機</strong>（狂扣分）。</li><li>結束時電池剩越多，獎勵越高！</li></ul></div>",
                 helpClose: "了解！",
                 gameTime: "虛擬時間",
                 gameSat: "當前績效",
@@ -255,9 +255,9 @@
                 lbTitle: "戰情室排行榜",
                 lbLoading: "載入資料中...",
                 lbEmpty: "目前還沒有紀錄，成為第一位挑戰者吧！",
-                lossEconomy: "<span class='text-rose-500 animate-pulse'>⚠️ 經濟損失</span>",
-                lossComplaint: "<span class='text-amber-500 animate-pulse'>⚠️ 民怨飆升</span>",
-                lossSociety: "<span class='text-fuchsia-400 animate-pulse'>⚠️ 社會停擺</span>",
+                lossEconomy: "<span class='text-rose-500 animate-pulse font-bold'>⚠️ 經濟損失</span>",
+                lossComplaint: "<span class='text-amber-500 animate-pulse font-bold'>⚠️ 民怨飆升</span>",
+                lossSociety: "<span class='text-fuchsia-400 animate-pulse font-bold'>⚠️ 社會停擺</span>",
                 events: { cloudy: "烏雲密布！太陽能驟降", windy: "強風襲來！風力激增", sunny: "雲霧散去！太陽能滿載", nowind: "無風之日！風力停擺", stable: "氣候穩定" }
             },
             en: {
@@ -268,7 +268,7 @@
                 introBtn: "Start EMS",
                 introRank: "🏆 View Leaderboard",
                 helpTitle: "How to Play",
-                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>Next 60s is <span class='text-emerald-400 font-black'>24 Hours</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>Day:</strong> Solar charge & keep economy running</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>Night:</strong> Turn off to save power, <strong class='text-rose-400'>expect complaints/loss!</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>Generator:</strong> Power with Carbon penalty</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ Fail: Battery dies OR Hospital loses power</p><p class='text-emerald-400 font-black text-sm sm:text-base tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 How to Win Big:</p><ul class='text-[10px] text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>Keep facilities ON as much as possible.</li><li>Avoid Generator <strong class='text-amber-400'>at all costs</strong>.</li><li>End with high battery for bonuses!</li></ul></div>",
+                helpContent: "<p class='text-slate-100 mb-3 text-center text-sm font-bold tracking-wider'>Next 60s is <span class='text-emerald-400 font-black'>24 Hours</span></p><div class='bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-xs sm:text-sm space-y-2 shadow-inner'><div class='flex items-start gap-2'><span class='text-base leading-none'>☀️</span> <span class='leading-tight'><strong class='text-white'>Day:</strong> Solar charge & keep economy running</span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>🌙</span> <span class='leading-tight'><strong class='text-white'>Night:</strong> Turn off to save power, <strong class='text-rose-400'>expect complaints/loss!</strong></span></div><div class='flex items-start gap-2'><span class='text-base leading-none'>⚠️</span> <span class='leading-tight'><strong class='text-amber-400'>Generator:</strong> Power with Carbon penalty</span></div></div><div class='mt-3 pt-3 border-t border-slate-700/50 space-y-1.5 text-left'><p class='text-rose-400 font-bold text-xs sm:text-sm tracking-wide text-center mb-1.5'>❌ Fail: Battery dies OR Hospital loses power</p><p class='text-emerald-400 font-black text-sm tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] text-center'>🏆 How to Win Big:</p><ul class='text-[10px] text-slate-300 list-disc pl-5 space-y-1 font-bold mt-1.5'><li>Keep facilities ON as much as possible.</li><li>Avoid Generator <strong class='text-amber-400'>at all costs</strong>.</li><li>End with high battery for bonuses!</li></ul></div>",
                 helpClose: "Got it!",
                 gameTime: "Virtual Time",
                 gameSat: "Performance",
@@ -298,9 +298,9 @@
                 lbTitle: "Leaderboard",
                 lbLoading: "Loading data...",
                 lbEmpty: "No records yet, be the first challenger!",
-                lossEconomy: "<span class='text-rose-500 animate-pulse'>⚠️ Econ Loss</span>",
-                lossComplaint: "<span class='text-amber-500 animate-pulse'>⚠️ Complaints</span>",
-                lossSociety: "<span class='text-fuchsia-400 animate-pulse'>⚠️ Society Halt</span>",
+                lossEconomy: "<span class='text-rose-500 animate-pulse font-bold'>⚠️ Econ Loss</span>",
+                lossComplaint: "<span class='text-amber-500 animate-pulse font-bold'>⚠️ Complaints</span>",
+                lossSociety: "<span class='text-fuchsia-400 animate-pulse font-bold'>⚠️ Society Halt</span>",
                 events: { cloudy: "Clouds! Solar Drops", windy: "Strong Winds! Wind Surge", sunny: "Clear Sky! Solar Max", nowind: "No Wind! Wind Stops", stable: "Weather Stable" }
             }
         };
@@ -331,51 +331,6 @@
 
         signInAnonymously(auth).catch(e => console.error(e));
         onAuthStateChanged(auth, user => { fbUser = user; });
-
-        function initFacilities() {
-            state.facilities = FACILITY_CONFIG.map(f => ({ ...f, isOn: true }));
-            state.genOn = false;
-            updateGenUI();
-            renderFacilities();
-        }
-
-        function updateGenUI() {
-            const bgFx = document.getElementById('gen-bg-fx');
-            const iconBg = document.getElementById('gen-icon-bg');
-            const icon = document.getElementById('gen-icon');
-            const toggleBg = document.getElementById('gen-toggle-bg');
-            const toggleDot = document.getElementById('gen-toggle-dot');
-            if (state.genOn) {
-                bgFx.classList.remove('hidden');
-                iconBg.classList.replace('bg-slate-800/80', 'bg-amber-500');
-                icon.classList.replace('text-slate-500', 'text-white');
-                toggleBg.classList.replace('bg-slate-700', 'bg-amber-500');
-                toggleDot.classList.replace('translate-x-0', 'translate-x-3.5');
-                toggleDot.classList.replace('bg-slate-300', 'bg-white');
-            } else {
-                bgFx.classList.add('hidden');
-                iconBg.classList.replace('bg-amber-500', 'bg-slate-800/80');
-                icon.classList.replace('text-white', 'text-slate-500');
-                toggleBg.classList.replace('bg-amber-500', 'bg-slate-700');
-                toggleDot.classList.replace('translate-x-3.5', 'translate-x-0');
-                toggleDot.classList.replace('bg-white', 'bg-slate-300');
-            }
-        }
-
-        function renderFacilities() {
-            const container = document.getElementById('facilities-container');
-            container.innerHTML = '';
-            const t = i18n[currentLang];
-            state.facilities.forEach((f, index) => {
-                const statusColor = f.isOn ? `bg-${f.color}-500 shadow-[0_0_8px_rgba(var(--tw-colors-${f.color}-500),0.5)]` : `bg-slate-700/50`;
-                const textColor = f.isOn ? `text-white` : `text-slate-500`;
-                const iconColor = f.isOn ? `text-white` : `text-slate-500`;
-                const cardBg = f.isOn ? `bg-slate-800/90` : `bg-slate-900/60`;
-                const html = `<div class="${cardBg} backdrop-blur-md rounded-lg border border-white/5 p-1.5 transition-all duration-300 relative overflow-hidden cursor-pointer hover:border-slate-500 active:scale-[0.98]" onclick="toggleFacility(${index})"><div class="flex flex-col relative z-10"><div class="flex justify-between items-center mb-1"><div class="flex items-center gap-1.5"><div class="${statusColor} w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0"><i data-lucide="${f.icon}" class="w-3.5 h-3.5 ${iconColor}"></i></div><h3 class="font-bold text-[10px] ${textColor} truncate max-w-[60px]">${f.name[currentLang]}</h3></div><div class="w-7 h-4 rounded-full ${f.isOn ? 'bg-emerald-500' : 'bg-slate-700'} relative p-0.5 border border-slate-600"><div class="w-3 h-3 rounded-full ${f.isOn ? 'bg-white' : 'bg-slate-300'} transform transition-transform duration-300 ${f.isOn ? 'translate-x-3' : 'translate-x-0'}"></div></div></div><div class="text-[9px] font-mono ${f.isOn ? 'text-rose-400' : 'text-slate-500'} font-bold">${f.isOn ? '-' + f.draw + ' kW' : (!f.critical ? t[f.lossType] : '0 kW')}</div></div>${!f.isOn ? '<div class="absolute inset-0 bg-slate-900/40 z-0"></div>' : ''}</div>`;
-                container.insertAdjacentHTML('beforeend', html);
-            });
-            lucide.createIcons();
-        }
 
         window.toggleLang = function() {
             currentLang = currentLang === 'zh' ? 'en' : 'zh';
@@ -423,92 +378,21 @@
             }, 400);
         };
 
-        function updateDashboard() {
-            let elapsed = 60 - state.time;
-            let virtualHour = Math.floor((elapsed / 60) * 24);
-            let virtualMin = Math.floor((((elapsed / 60) * 24) % 1) * 60);
-            document.getElementById('ui-virtual-time').innerText = String(virtualHour).padStart(2, '0') + ':' + String(virtualMin).padStart(2, '0');
-            document.getElementById('ui-real-time').innerText = state.time + 's';
-            document.getElementById('time-progress-bar').style.width = `${(elapsed/60)*100}%`;
-            let sunFactor = Math.sin(Math.PI * (elapsed / 60));
-            if (sunFactor < 0) sunFactor = 0;
-            state.solarCurrent = Math.floor(sunFactor * 480 * state.solarMod);
-            const timeIcon = document.getElementById('time-icon');
-            if (virtualHour >= 6 && virtualHour < 18) { timeIcon.setAttribute('data-lucide', 'sun'); timeIcon.className = "w-4 h-4 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]"; } else { timeIcon.setAttribute('data-lucide', 'moon'); timeIcon.className = "w-4 h-4 text-blue-300 drop-shadow-[0_0_5px_rgba(147,197,253,0.8)]"; }
-            lucide.createIcons();
-            let totalDraw = 0;
-            state.facilities.forEach(f => { if (f.isOn) totalDraw += f.draw; });
-            let supply = state.solarCurrent + state.windCurrent;
-            if (state.genOn) supply += 200;
-            let netPower = Math.floor(supply - totalDraw);
-            document.getElementById('ui-draw').innerText = totalDraw;
-            document.getElementById('ui-solar').innerText = state.solarCurrent;
-            document.getElementById('ui-wind').innerText = Math.floor(state.windCurrent);
-            const netEl = document.getElementById('ui-net-power');
-            if (netPower >= 0) { netEl.innerText = '+' + netPower + ' kW'; netEl.className = 'font-mono text-xs tracking-tight font-black text-emerald-400'; } else { netEl.innerText = netPower + ' kW'; netEl.className = 'font-mono text-xs tracking-tight font-black text-rose-400'; }
-            let totalScore = Math.floor(state.satisfaction) - state.carbon;
-            document.getElementById('ui-total-score').innerText = totalScore;
-            document.getElementById('ui-battery-text').innerHTML = `<span class="text-slate-200 font-black">${Math.floor(state.battery)} / ${state.maxBattery}</span>`;
-            const pct = Math.max(0, (state.battery / state.maxBattery) * 100);
-            const bar = document.getElementById('ui-battery-bar');
-            bar.style.width = `${pct}%`;
-            if (pct > 50) { bar.className = 'h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300 shadow-[0_0_12px_rgba(52,211,153,0.8)] rounded-r-full'; } else if (pct > 20) { bar.className = 'h-full bg-gradient-to-r from-amber-400 to-yellow-500 w-full transition-all duration-300 shadow-[0_0_12px_rgba(250,204,21,0.8)] rounded-r-full'; } else { bar.className = 'h-full bg-gradient-to-r from-rose-500 to-red-600 w-full transition-all duration-300 shadow-[0_0_12px_rgba(244,63,94,0.8)] animate-pulse rounded-r-full'; }
-        }
-
-        function gameTick() {
+        window.toggleGenerator = function() {
             if (state.status !== 'playing') return;
-            let totalDraw = 0;
-            state.facilities.forEach(f => { if (f.isOn) { totalDraw += f.draw; if (!f.critical) state.satisfaction += (f.draw / 10); } else { if (!f.critical) state.satisfaction -= (f.draw / 15); } });
-            if (state.genOn) state.carbon += 10;
-            if (Math.random() > 0.5) { let baseWind = 100 * state.windMod; state.windCurrent = Math.max(0, baseWind + (Math.random() * 40 - 20)); }
-            eventTimer++; if (eventTimer >= 10) { triggerEvent(); eventTimer = 0; }
-            let supply = state.solarCurrent + state.windCurrent; if (state.genOn) supply += 200;
-            let netPower = supply - totalDraw; state.battery += netPower; if (state.battery > state.maxBattery) state.battery = state.maxBattery;
-            state.time -= 1;
-            if (state.battery <= 0) { state.battery = 0; updateDashboard(); gameOver('battery_dead'); return; }
-            if (state.time <= 0) { state.time = 0; updateDashboard(); victory(); return; }
+            state.genOn = !state.genOn;
+            updateGenUI();
             updateDashboard();
-        }
+        };
 
-        function gameOver(reason) {
-            state.status = 'gameover'; state.failReason = reason; clearInterval(timerInterval);
-            const res = document.getElementById('screen-result');
-            res.style.display = 'flex'; res.classList.remove('hidden'); res.classList.add('fade-in');
-            document.getElementById('score-section').classList.add('hidden');
-            document.getElementById('btn-restart').classList.remove('hidden');
-            const icon = document.getElementById('result-icon');
-            icon.className = 'w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(244,63,94,0.4)] bg-rose-500/20 text-rose-500 border border-rose-500/50';
-            icon.innerHTML = '<i data-lucide="triangle-alert" class="w-10 h-10"></i>';
-            document.getElementById('result-title').className = 'text-3xl sm:text-4xl font-black mb-2 text-center text-rose-500 tracking-wide';
-            updateResultText(); lucide.createIcons();
-        }
-
-        function victory() {
-            state.status = 'victory'; clearInterval(timerInterval);
-            const res = document.getElementById('screen-result');
-            res.style.display = 'flex'; res.classList.remove('hidden'); res.classList.add('fade-in');
-            document.getElementById('score-section').classList.remove('hidden');
-            document.getElementById('btn-restart').classList.add('hidden');
-            const icon = document.getElementById('result-icon');
-            icon.className = 'w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(52,211,153,0.4)] bg-emerald-500/20 text-emerald-400 border border-emerald-500/50';
-            icon.innerHTML = '<i data-lucide="shield-check" class="w-10 h-10"></i>';
-            document.getElementById('result-title').className = 'text-2xl sm:text-3xl font-black mb-2 text-center text-emerald-400 tracking-wide';
-            let satScore = Math.floor(state.satisfaction); let carScore = state.carbon; let batBonus = Math.floor(state.battery * 0.1);
-            state.finalScore = satScore - carScore + batBonus;
-            document.getElementById('result-score').innerText = state.finalScore;
-            document.getElementById('res-val-sat').innerText = `+${satScore}`;
-            document.getElementById('res-val-car').innerText = `-${carScore}`;
-            document.getElementById('res-val-bat').innerText = `+${batBonus}`;
-            updateResultText(); lucide.createIcons();
-        }
-
-        function triggerEvent() {
-            const events = [{ id: 'cloudy', solarMod: 0.2, windMod: 1.0, color: 'text-slate-300' }, { id: 'windy', solarMod: 1.0, windMod: 2.0, color: 'text-cyan-300' }, { id: 'sunny', solarMod: 1.5, windMod: 0.5, color: 'text-yellow-300' }, { id: 'nowind', solarMod: 1.0, windMod: 0.1, color: 'text-slate-400' }, { id: 'stable', solarMod: 1.0, windMod: 1.0, color: 'text-emerald-300' }];
-            const evt = events[Math.floor(Math.random() * events.length)];
-            state.solarMod = evt.solarMod; state.windMod = evt.windMod;
-            const banner = document.getElementById('ui-event-banner'); const evtText = document.getElementById('ui-event-text'); const t = i18n[currentLang].events;
-            if (evt.id === 'stable') { banner.classList.add('hidden'); } else { banner.classList.remove('hidden'); evtText.innerText = t[evt.id]; banner.className = `hidden text-[9px] px-1.5 py-0.5 rounded bg-slate-800 border border-slate-600 font-bold ${evt.color}`; banner.classList.remove('hidden'); }
-        }
+        window.resetGame = function() {
+            document.getElementById('screen-result').style.display = 'none';
+            document.getElementById('screen-intro').style.display = 'flex';
+            document.getElementById('screen-intro').classList.remove('fade-out');
+            document.getElementById('screen-intro').classList.add('fade-in');
+            document.getElementById('screen-game').style.display = 'none';
+            document.getElementById('time-progress-bar').style.width = '0%';
+        };
 
         window.submitToFirebase = async function() {
             const t = i18n[currentLang]; const name = document.getElementById('player-name').value.trim();
@@ -549,13 +433,111 @@
             document.getElementById('screen-intro').style.display = 'flex';
         };
 
-        window.resetGame = function() {
-            document.getElementById('screen-result').style.display = 'none';
-            document.getElementById('screen-intro').style.display = 'flex';
-            document.getElementById('screen-intro').classList.remove('fade-out');
-            document.getElementById('screen-intro').classList.add('fade-in');
-            document.getElementById('screen-game').style.display = 'none';
-        };
+        function initFacilities() {
+            state.facilities = FACILITY_CONFIG.map(f => ({ ...f, isOn: true }));
+            state.genOn = false;
+            updateGenUI();
+            renderFacilities();
+        }
+
+        function updateGenUI() {
+            const bgFx = document.getElementById('gen-bg-fx');
+            const iconBg = document.getElementById('gen-icon-bg');
+            const icon = document.getElementById('gen-icon');
+            const toggleBg = document.getElementById('gen-toggle-bg');
+            const toggleDot = document.getElementById('gen-toggle-dot');
+            if (state.genOn) {
+                bgFx.classList.remove('hidden');
+                iconBg.classList.replace('bg-slate-800/80', 'bg-amber-500');
+                icon.classList.replace('text-slate-500', 'text-white');
+                toggleBg.classList.replace('bg-slate-700', 'bg-amber-500');
+                toggleDot.classList.replace('translate-x-0', 'translate-x-3.5');
+                toggleDot.classList.replace('bg-slate-300', 'bg-white');
+            } else {
+                bgFx.classList.add('hidden');
+                iconBg.classList.replace('bg-amber-500', 'bg-slate-800/80');
+                icon.classList.replace('text-white', 'text-slate-500');
+                toggleBg.classList.replace('bg-amber-500', 'bg-slate-700');
+                toggleDot.classList.replace('translate-x-3.5', 'translate-x-0');
+                toggleDot.classList.replace('bg-white', 'bg-slate-300');
+            }
+        }
+
+        function renderFacilities() {
+            const container = document.getElementById('facilities-container');
+            container.innerHTML = '';
+            const t = i18n[currentLang];
+            state.facilities.forEach((f, index) => {
+                const statusColor = f.isOn ? `bg-${f.color}-500 shadow-[0_0_8px_rgba(var(--tw-colors-${f.color}-500),0.5)]` : `bg-slate-700/50`;
+                const textColor = f.isOn ? `text-white` : `text-slate-500`;
+                const iconColor = f.isOn ? `text-white` : `text-slate-500`;
+                const cardBg = f.isOn ? `bg-slate-800/90` : `bg-slate-900/60`;
+                const html = `<div class="${cardBg} backdrop-blur-md rounded-lg border border-white/5 p-1.5 transition-all duration-300 relative overflow-hidden cursor-pointer hover:border-slate-500 active:scale-[0.98]" onclick="toggleFacility(${index})"><div class="flex flex-col relative z-10"><div class="flex justify-between items-center mb-1"><div class="flex items-center gap-1.5"><div class="${statusColor} w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0"><i data-lucide="${f.icon}" class="w-3.5 h-3.5 ${iconColor}"></i></div><h3 class="font-bold text-[10px] ${textColor} truncate max-w-[60px]">${f.name[currentLang]}</h3></div><div class="w-7 h-4 rounded-full ${f.isOn ? 'bg-emerald-500' : 'bg-slate-700'} relative p-0.5 border border-slate-600"><div class="w-3 h-3 rounded-full ${f.isOn ? 'bg-white' : 'bg-slate-300'} transform transition-transform duration-300 ${f.isOn ? 'translate-x-3' : 'translate-x-0'}"></div></div></div><div class="text-[9px] font-mono ${f.isOn ? 'text-rose-400' : 'text-slate-500'} font-bold">${f.isOn ? '-' + f.draw + ' kW' : (!f.critical ? t[f.lossType] : '0 kW')}</div></div>${!f.isOn ? '<div class="absolute inset-0 bg-slate-900/40 z-0"></div>' : ''}</div>`;
+                container.insertAdjacentHTML('beforeend', html);
+            });
+            lucide.createIcons();
+        }
+
+        function updateDashboard() {
+            let elapsed = 60 - state.time;
+            let virtualHour = Math.floor((elapsed / 60) * 24);
+            let virtualMin = Math.floor((((elapsed / 60) * 24) % 1) * 60);
+            document.getElementById('ui-virtual-time').innerText = String(virtualHour).padStart(2, '0') + ':' + String(virtualMin).padStart(2, '0');
+            document.getElementById('ui-real-time').innerText = state.time + 's';
+            document.getElementById('time-progress-bar').style.width = `${(elapsed/60)*100}%`;
+            let sunFactor = Math.sin(Math.PI * (elapsed / 60));
+            if (sunFactor < 0) sunFactor = 0;
+            state.solarCurrent = Math.floor(sunFactor * 480 * state.solarMod);
+            const timeIcon = document.getElementById('time-icon');
+            if (virtualHour >= 6 && virtualHour < 18) {
+                timeIcon.setAttribute('data-lucide', 'sun');
+                timeIcon.setAttribute('class', 'w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]');
+            } else {
+                timeIcon.setAttribute('data-lucide', 'moon');
+                timeIcon.setAttribute('class', 'w-5 h-5 sm:w-6 sm:h-6 text-blue-300 drop-shadow-[0_0_5px_rgba(147,197,253,0.8)]');
+            }
+            lucide.createIcons();
+            let totalDraw = 0;
+            state.facilities.forEach(f => { if (f.isOn) totalDraw += f.draw; });
+            let supply = state.solarCurrent + state.windCurrent;
+            if (state.genOn) supply += 200;
+            let netPower = Math.floor(supply - totalDraw);
+            document.getElementById('ui-draw').innerText = totalDraw;
+            document.getElementById('ui-solar').innerText = state.solarCurrent;
+            document.getElementById('ui-wind').innerText = Math.floor(state.windCurrent);
+            const netEl = document.getElementById('ui-net-power');
+            if (netPower >= 0) { netEl.innerText = '+' + netPower + ' kW'; netEl.className = 'font-mono text-xs tracking-tight font-black text-emerald-400'; } else { netEl.innerText = netPower + ' kW'; netEl.className = 'font-mono text-xs tracking-tight font-black text-rose-400'; }
+            let totalScore = Math.floor(state.satisfaction) - state.carbon;
+            document.getElementById('ui-total-score').innerText = totalScore;
+            document.getElementById('ui-battery-text').innerHTML = `<span class="text-slate-200 font-black">${Math.floor(state.battery)} / ${state.maxBattery}</span>`;
+            const pct = Math.max(0, (state.battery / state.maxBattery) * 100);
+            const bar = document.getElementById('ui-battery-bar');
+            bar.style.width = `${pct}%`;
+            if (pct > 50) { bar.className = 'h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-full transition-all duration-300 shadow-[0_0_12px_rgba(52,211,153,0.8)] rounded-r-full'; } else if (pct > 20) { bar.className = 'h-full bg-gradient-to-r from-amber-400 to-yellow-500 w-full transition-all duration-300 shadow-[0_0_12px_rgba(250,204,21,0.8)] rounded-r-full'; } else { bar.className = 'h-full bg-gradient-to-r from-rose-500 to-red-600 w-full transition-all duration-300 shadow-[0_0_12px_rgba(244,63,94,0.8)] animate-pulse rounded-r-full'; }
+        }
+
+        function gameTick() {
+            if (state.status !== 'playing') return;
+            let totalDraw = 0;
+            state.facilities.forEach(f => { if (f.isOn) { totalDraw += f.draw; if (!f.critical) state.satisfaction += (f.draw / 10); } else { if (!f.critical) state.satisfaction -= (f.draw / 15); } });
+            if (state.genOn) state.carbon += 10;
+            if (Math.random() > 0.5) { let baseWind = 100 * state.windMod; state.windCurrent = Math.max(0, baseWind + (Math.random() * 40 - 20)); }
+            eventTimer++; if (eventTimer >= 10) { triggerEvent(); eventTimer = 0; }
+            let supply = state.solarCurrent + state.windCurrent; if (state.genOn) supply += 200;
+            let netPower = supply - totalDraw; state.battery += netPower; if (state.battery > state.maxBattery) state.battery = state.maxBattery;
+            state.time -= 1;
+            if (state.battery <= 0) { state.battery = 0; updateDashboard(); gameOver('battery_dead'); return; }
+            if (state.time <= 0) { state.time = 0; updateDashboard(); victory(); return; }
+            updateDashboard();
+        }
+
+        function triggerEvent() {
+            const events = [{ id: 'cloudy', solarMod: 0.2, windMod: 1.0, color: 'text-slate-300' }, { id: 'windy', solarMod: 1.0, windMod: 2.0, color: 'text-cyan-300' }, { id: 'sunny', solarMod: 1.5, windMod: 0.5, color: 'text-yellow-300' }, { id: 'nowind', solarMod: 1.0, windMod: 0.1, color: 'text-slate-400' }, { id: 'stable', solarMod: 1.0, windMod: 1.0, color: 'text-emerald-300' }];
+            const evt = events[Math.floor(Math.random() * events.length)];
+            state.solarMod = evt.solarMod; state.windMod = evt.windMod;
+            const banner = document.getElementById('ui-event-banner'); const evtText = document.getElementById('ui-event-text'); const t = i18n[currentLang].events;
+            if (evt.id === 'stable') { banner.classList.add('hidden'); } else { banner.classList.remove('hidden'); evtText.innerText = t[evt.id]; banner.className = `hidden text-[9px] px-1.5 py-0.5 rounded bg-slate-800 border border-slate-600 font-bold ${evt.color}`; banner.classList.remove('hidden'); }
+        }
 
         function updateStaticText() {
             const t = i18n[currentLang];
